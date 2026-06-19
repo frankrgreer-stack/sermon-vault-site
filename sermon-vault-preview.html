@@ -1,0 +1,2210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sermon Vault — Graham · Warren · Osteen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600..900;1,9..144,600..900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f7ecd4;        /* honeyed hymnal paper */
+  --card:#fdf8ea;         /* candlelit page */
+  --card-edge:#e4d4b2;
+  --ink:#33271a;          /* warm walnut ink */
+  --ink-dim:#80694c;
+  --gilt:#a87a22;         /* gold leaf */
+  --gilt-soft:rgba(168,122,34,.12);
+  --ember:#8a2f1d;        /* burgundy leather */
+  --graham:#b0432e;       /* crusade-poster red, sun-warmed */
+  --warren:#5d7c50;       /* purpose-driven olive */
+  --osteen:#4d6b8f;       /* Lakewood slate blue, warmed */
+  --jakes:#6e4a8c;        /* Potter's House plum */
+  --stanley:#2f6e63;      /* In Touch teal */
+  --keller:#8a5a3c;       /* Redeemer sienna */
+  --sheen:#97304a;        /* cardinal wine */
+  --mlk:#3f4e7d;          /* Ebenezer midnight */
+  --meyer:#b3702b;        /* everyday copper */
+  --evans:#6a7a2e;        /* Oak Cliff moss */
+  --spurgeon:#5a4634;     /* Victorian umber */
+  --laurie:#a8851c;       /* Harvest gold */
+  --franklin:#8e4377;     /* Free Chapel mulberry */
+  /* hymn jewel-glass tones */
+  --h-garnet:#9c2f3f; --h-emerald:#2f7d5a; --h-amber:#bf922a;
+  --h-lapis:#2f5aa8; --h-royal:#6a4a9c; --h-steel:#3a6b8c; --h-rose:#a8447a;
+  --r:16px;
+  --shadow:0 3px 14px rgba(122,86,32,.12), 0 1px 4px rgba(122,86,32,.08);
+  --disp:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Lora",Georgia,"Times New Roman",serif;
+  --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--body);
+  font-size:16px;line-height:1.55;min-height:100vh;
+  background-image:
+    radial-gradient(1100px 540px at 50% -150px, rgba(255,238,196,.95), transparent 70%),
+    radial-gradient(900px 600px at 105% 8%, rgba(196,128,60,.10), transparent 70%),
+    radial-gradient(700px 500px at -5% 30%, rgba(168,122,34,.07), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(120,90,40,.02) 0 1px, transparent 1px 28px);
+}
+/* paper grain */
+body::after{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:90;
+  opacity:.05;mix-blend-mode:multiply;
+  background-image:url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="160" height="160"><filter id="n"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2"/></filter><rect width="160" height="160" filter="url(%23n)"/></svg>');
+  background-size:160px 160px;
+}
+/* stained glass band */
+.glass{display:flex;height:8px;border-bottom:1px solid rgba(120,90,40,.35)}
+.glass span{flex:1;opacity:.85;border-right:1px solid rgba(243,234,213,.7)}
+.glass span:last-child{border-right:0}
+/* shared inline icon style */
+.ic{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.8;
+  stroke-linecap:round;stroke-linejoin:round;vertical-align:-2px;flex:none}
+.ic-fill{fill:currentColor;stroke:none}
+/* breathe on notched phones, portrait or landscape */
+header,.tabs,.toolbar,.count-row,main,.voices,.daily-wrap,.benediction,footer{
+  padding-left:max(18px, env(safe-area-inset-left));
+  padding-right:max(18px, env(safe-area-inset-right));
+}
+
+/* ---------- splash / welcome ---------- */
+body.splash-open{overflow:hidden}
+.splash{position:fixed;inset:0;z-index:200;overflow-y:auto;-webkit-overflow-scrolling:touch;
+  transition:opacity .6s ease, visibility .6s ease;
+  background:
+    radial-gradient(900px 520px at 50% 10%, rgba(255,238,196,.95), transparent 70%),
+    radial-gradient(760px 520px at 100% 100%, rgba(196,128,60,.12), transparent 70%),
+    radial-gradient(640px 480px at 0 60%, rgba(168,122,34,.08), transparent 70%),
+    var(--paper);}
+.splash.gone{opacity:0;visibility:hidden;pointer-events:none}
+.splash-inner{max-width:660px;margin:0 auto;padding:22px 20px 52px;text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:13px}
+.rose-wrap{width:min(62vw,250px);margin:6px auto 0}
+.rose{width:100%;height:auto;display:block;filter:drop-shadow(0 6px 18px rgba(122,86,32,.22))}
+.rose .pouter,.rose .pinner{transform-box:view-box;transform-origin:center}
+.rose .pouter{animation:rosespin 150s linear infinite}
+.rose .pinner{animation:rosespin 105s linear infinite reverse}
+@keyframes rosespin{to{transform:rotate(360deg)}}
+.splash-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gilt)}
+.splash-title{font-family:var(--disp);font-weight:900;font-size:clamp(40px,11vw,66px);line-height:.96;letter-spacing:-.015em;color:var(--ink);margin:-2px 0}
+.splash-title .gilt{color:var(--gilt);font-style:italic;font-weight:700}
+.splash-verse{font-style:italic;color:var(--ember);font-size:16.5px;max-width:44ch;line-height:1.5}
+.splash-verse span{display:block;font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gilt);margin-top:5px}
+.splash-lede{color:var(--ink-dim);font-size:15px;max-width:52ch;line-height:1.62}
+.splash-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;width:100%;margin:8px 0 2px}
+.splash-cards>div{background:var(--card);border:1px solid var(--card-edge);border-radius:13px;padding:15px 6px;
+  display:flex;flex-direction:column;align-items:center;gap:6px;box-shadow:var(--shadow)}
+.splash-cards .ic{width:23px;height:23px;color:var(--gilt)}
+.splash-cards b{font-family:var(--disp);font-weight:700;font-size:16px;color:var(--ink)}
+.splash-cards span{font-family:var(--mono);font-size:9px;letter-spacing:.05em;color:var(--ink-dim);text-transform:uppercase;line-height:1.3}
+.splash-voices{font-family:var(--body);font-style:italic;font-size:13px;color:var(--ink-dim);max-width:50ch;line-height:1.7}
+.enter-btn{font-family:var(--disp);font-weight:700;font-size:19px;letter-spacing:.01em;
+  background:var(--ember);color:#fdeede;border:0;border-radius:999px;padding:13px 32px;cursor:pointer;margin-top:8px;
+  box-shadow:0 4px 16px rgba(138,47,29,.32);transition:transform .15s,box-shadow .15s}
+.enter-btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(138,47,29,.4)}
+.splash-foot{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gilt);display:flex;align-items:center;gap:7px;margin-top:4px}
+.splash-foot .ic{width:14px;height:14px}
+.reopen{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--gilt);background:none;border:1px solid var(--card-edge);border-radius:999px;padding:6px 14px;cursor:pointer;margin-bottom:10px}
+.reopen:hover{border-color:var(--gilt)}
+@media(max-width:440px){.splash-cards{grid-template-columns:repeat(2,1fr)}}
+@media(prefers-reduced-motion:reduce){.splash{transition:none}.rose .pouter,.rose .pinner{animation:none}.enter-btn:hover{transform:none}}
+
+/* ---------- masthead ---------- */
+header{padding-top:36px;padding-bottom:14px;max-width:1120px;margin:0 auto;position:relative;overflow:hidden}
+.mark-bg{
+  position:absolute;top:-60px;right:-50px;width:300px;height:300px;
+  color:var(--gilt);opacity:.07;pointer-events:none;
+}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;letter-spacing:.22em;
+  color:var(--gilt);text-transform:uppercase;
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;position:relative;
+}
+.eyebrow .dot{width:7px;height:7px;border-radius:50%;background:var(--ember);
+  box-shadow:0 0 7px rgba(138,47,29,.55);animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+h1{
+  font-family:var(--disp);font-weight:900;
+  font-size:clamp(42px,9.6vw,84px);
+  line-height:.98;letter-spacing:-.015em;
+  margin:12px 0 8px;color:var(--ink);position:relative;
+}
+h1 .gilt{color:var(--gilt);font-style:italic;font-weight:700}
+.rule{height:0;border-top:1.5px solid var(--gilt);border-bottom:1px solid rgba(168,122,34,.4);
+  padding-top:3px;margin:14px 0 10px;position:relative}
+.hello{
+  font-style:italic;color:var(--ember);font-size:18px;margin-bottom:4px;position:relative;
+}
+.hello .ic{width:16px;height:16px;margin-right:4px}
+.tagline{font-style:italic;color:var(--ink-dim);font-size:15.5px;max-width:64ch;position:relative}
+
+/* ---------- today's word ---------- */
+.daily-wrap{max-width:1120px;margin:4px auto 10px}
+.daily{
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;width:100%;
+  background:linear-gradient(120deg, rgba(168,122,34,.14), rgba(253,248,234,.65) 55%);
+  border:1px solid rgba(168,122,34,.5);border-radius:12px;
+  padding:11px 16px;cursor:pointer;text-align:left;
+  font-family:var(--body);color:var(--ink);box-shadow:var(--shadow);
+}
+.daily:hover{border-color:var(--gilt)}
+.daily .d-label{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--gilt);display:flex;align-items:center;gap:6px}
+.daily .d-ref{font-family:var(--disp);font-weight:700;font-size:19px}
+.daily .d-snip{font-style:italic;color:var(--ink-dim);font-size:14px;flex:1;min-width:160px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.daily .d-tail{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ember);white-space:nowrap}
+
+/* ---------- tabs ---------- */
+.tabs{max-width:1120px;margin:6px auto 0;display:flex;gap:8px}
+.tab{
+  flex:1;font-family:var(--disp);font-weight:700;font-size:clamp(13px,3.2vw,20px);white-space:nowrap;
+  letter-spacing:0;text-align:center;
+  background:transparent;border:1px solid var(--card-edge);border-bottom:3px solid var(--card-edge);
+  color:var(--ink-dim);padding:9px 6px 7px;cursor:pointer;border-radius:14px 14px 0 0;
+  transition:all .15s;
+}
+.tab .ic{width:14px;height:14px;margin-right:5px;vertical-align:-1px}
+.tab small{display:block;font-family:var(--mono);font-weight:400;font-size:9.5px;letter-spacing:.18em;margin-top:2px}
+.tab[aria-pressed="true"]{
+  background:var(--card);color:var(--ink);border-color:var(--gilt);border-bottom-color:var(--gilt);
+}
+.tab:hover{color:var(--ink)}
+@media(max-width:520px){.tab .ic{display:none}.tab{padding:9px 3px 7px}.pill,.chip{font-size:11px}}
+
+/* ---------- toolbar ---------- */
+.toolbar{
+  position:sticky;top:0;z-index:40;
+  background:rgba(247,236,212,.93);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--card-edge);
+  padding-top:12px;padding-bottom:10px;
+}
+.toolbar-inner{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:10px}
+.search-row{display:flex;gap:8px;align-items:center}
+.search{
+  flex:1;display:flex;align-items:center;gap:9px;
+  background:var(--card);border:1px solid var(--card-edge);border-radius:8px;
+  padding:9px 12px;
+}
+.search:focus-within{border-color:var(--gilt)}
+.search svg{flex:none;opacity:.7}
+.search input{
+  flex:1;background:none;border:0;outline:0;color:var(--ink);
+  font-family:var(--mono);font-size:13.5px;min-width:0;
+}
+.search input::placeholder{color:#a08f74}
+.clear-btn{
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  background:none;border:1px solid var(--card-edge);color:var(--ink-dim);
+  border-radius:8px;padding:9px 12px;cursor:pointer;white-space:nowrap;
+}
+.clear-btn:hover{border-color:var(--ember);color:var(--ember)}
+
+.pill-row{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:2px}
+.pill-row::-webkit-scrollbar{display:none}
+.pill{
+  flex:none;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;
+  border:1px solid var(--card-edge);background:var(--card);color:var(--ink-dim);
+  padding:7px 13px;border-radius:999px;cursor:pointer;transition:all .15s;
+  display:inline-flex;align-items:center;gap:6px;min-height:32px;
+}
+.pill .ic{width:13px;height:13px;color:var(--gilt)}
+.pill[aria-pressed="true"] .ic{color:currentColor}
+.pill[aria-pressed="true"]{background:var(--pc,var(--ink));border-color:var(--pc,var(--ink));color:#fff8ef;font-weight:700}
+.pill:hover{border-color:var(--gilt)}
+
+.rail-label{
+  font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gilt);flex:none;align-self:center;margin-right:2px;
+}
+.chip{
+  flex:none;font-family:var(--body);font-style:italic;font-size:13.5px;
+  border:1px solid rgba(168,122,34,.45);background:var(--gilt-soft);color:var(--ink);
+  padding:6px 13px;border-radius:999px;cursor:pointer;transition:all .15s;
+  display:inline-flex;align-items:center;gap:6px;min-height:32px;
+}
+.chip .ic{width:13px;height:13px;color:var(--gilt)}
+.chip[aria-pressed="true"] .ic{color:currentColor}
+.chip[aria-pressed="true"]{background:var(--gilt);color:#fff8ef;font-style:normal;font-weight:500}
+.chip:hover{border-color:var(--gilt)}
+
+.count-row{
+  max-width:1120px;margin:14px auto 0;
+  font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ink-dim);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;
+}
+.count-row b{color:var(--ember);font-weight:600}
+.count-row .ic{width:13px;height:13px;margin-right:5px;color:var(--gilt)}
+
+/* ---------- cards ---------- */
+main{max-width:1120px;margin:0 auto;padding-top:14px;padding-bottom:26px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,330px),1fr));gap:18px}
+
+.card{
+  background:var(--card);border:1px solid var(--card-edge);border-radius:var(--r);
+  overflow:hidden;display:flex;flex-direction:column;position:relative;
+  border-left:4px solid var(--pc,var(--gilt));
+  box-shadow:var(--shadow);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(122,86,32,.16), 0 2px 6px rgba(122,86,32,.1)}
+
+.player{position:relative;aspect-ratio:16/9;background:#1a140c;cursor:pointer;border:0;padding:0;display:block;width:100%}
+.player img{width:100%;height:100%;object-fit:cover;display:block;opacity:.92;transition:opacity .2s}
+.player:hover img{opacity:1}
+.player .play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.play-ring{
+  width:62px;height:62px;border-radius:50%;
+  background:rgba(46,36,24,.66);border:2px solid #e9c87a;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .15s;
+}
+.player:hover .play-ring{transform:scale(1.08)}
+.play-ring svg{margin-left:4px}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+/* poster + embed fallback */
+.poster-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  background:radial-gradient(120% 120% at 50% 30%,#2a2014,#140f08);color:#caa867}
+.poster-ph .ic{width:30px;height:30px;opacity:.85}
+.poster-ph span{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;opacity:.8}
+.player-fallback{display:flex;align-items:center;justify-content:center;background:radial-gradient(120% 120% at 50% 25%,#2a2014,#130e07)}
+.pf-inner{text-align:center;padding:18px 20px;max-width:340px;color:#e7d6b3}
+.pf-inner .ic{width:30px;height:30px;color:#caa867;margin-bottom:6px}
+.pf-inner p{margin:0 0 12px;font-size:13.5px;line-height:1.45;color:#d8c39b}
+.pf-actions{display:flex;gap:9px;justify-content:center;flex-wrap:wrap}
+.pf-btn{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  padding:8px 13px;border-radius:8px;border:1px solid #5a4a2c;background:#1c150c;color:#e9c87a;cursor:pointer;text-decoration:none;display:inline-block}
+.pf-btn:hover{background:#27200f;border-color:#7a6336}
+.pf-retry{font:inherit}
+
+.card-body{padding:15px 16px 17px;display:flex;flex-direction:column;gap:9px;flex:1}
+.meta{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-dim);display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+}
+.meta span{display:inline-flex;align-items:center;gap:5px}
+.meta .ic{width:12px;height:12px;color:var(--gilt);vertical-align:0}
+.badge{padding:3px 8px;border-radius:4px;font-weight:700;letter-spacing:.12em;color:#fff8ef;background:var(--pc,var(--gilt))}
+.card h2{
+  font-family:var(--disp);font-weight:700;font-size:22px;line-height:1.12;
+  letter-spacing:-.01em;
+}
+.desc{font-size:14.5px;color:#4d3f2c}
+.scripture{font-style:italic;color:var(--gilt);font-size:13.5px;font-weight:500}
+.occasion{font-style:italic;color:var(--pc,var(--gilt));font-size:13.5px;font-weight:500;display:flex;align-items:center;gap:6px}
+.occasion .ic{width:14px;height:14px;flex:none}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:4px}
+.tag{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
+  border:1px solid var(--card-edge);background:rgba(120,90,40,.05);color:var(--ink-dim);
+  padding:4px 9px;border-radius:4px;cursor:pointer;
+  display:inline-flex;align-items:center;gap:5px;min-height:25px;
+}
+.tag .ic{width:11px;height:11px;color:var(--gilt);vertical-align:0}
+.tag:hover{border-color:var(--gilt);color:var(--gilt)}
+.yt-link{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ember);text-decoration:none;margin-top:6px;display:inline-flex;gap:6px;align-items:center;
+}
+.yt-link:hover{text-decoration:underline}
+
+/* ---------- book cards ---------- */
+.book{padding-top:8px}
+.ribbon{
+  position:absolute;top:-1px;right:18px;width:30px;height:48px;
+  background:var(--pc,var(--gilt));
+  clip-path:polygon(0 0,100% 0,100% 100%,50% 78%,0 100%);
+  box-shadow:0 2px 5px rgba(94,70,30,.3);
+}
+.book h2{font-size:21px;padding-right:48px}
+.book .bigidea{
+  font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gilt);
+}
+
+/* ---------- passage cards: chapel windows ---------- */
+.passage{
+  border-radius:150px 150px var(--r) var(--r);
+  border-left:1px solid var(--card-edge);
+  border-top:4px solid var(--pc,var(--gilt));
+  background:
+    radial-gradient(120% 90px at 50% -20px, color-mix(in srgb, var(--pc,var(--gilt)) 16%, transparent), transparent 70%),
+    var(--card);
+}
+.passage .card-body{padding-top:26px}
+.passage .meta{justify-content:center}
+.passage .ref{
+  font-family:var(--disp);font-weight:800;font-size:23px;letter-spacing:-.01em;
+  color:var(--ink);text-align:center;
+}
+.passage .ref::after{
+  content:"";display:block;width:46px;height:2px;background:var(--gilt);
+  margin:8px auto 0;border-radius:2px;
+}
+.passage .verse{
+  font-size:18.5px;line-height:1.62;font-style:italic;color:#3c2f1e;
+}
+.passage .verse::first-letter{
+  font-family:var(--disp);font-style:normal;font-size:50px;font-weight:900;
+  color:var(--ember);float:left;line-height:.86;padding:3px 8px 0 0;
+}
+.passage .why{font-size:13.5px;color:var(--ink-dim)}
+.kjv{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--ink-dim);text-transform:uppercase}
+
+/* ---------- more voices ---------- */
+.voices{max-width:1120px;margin:6px auto 0;padding-bottom:8px}
+.voices-panel{
+  background:linear-gradient(180deg, var(--card), rgba(253,248,234,.6));
+  border:1px dashed rgba(168,122,34,.55);border-radius:var(--r);
+  padding:18px 18px 16px;box-shadow:var(--shadow);
+}
+.voices h3{
+  font-family:var(--disp);font-weight:700;font-size:22px;letter-spacing:-.01em;
+  display:flex;align-items:center;gap:8px;
+}
+.voices h3 .ic{width:18px;height:18px;color:var(--gilt)}
+.voices .lede{font-style:italic;color:var(--ink-dim);font-size:14px;margin:4px 0 12px}
+.voice-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:8px 22px;list-style:none}
+.voice-list li{font-size:14px;color:#4d3f2c;padding-left:18px;position:relative}
+.voice-list li::before{content:"❧";position:absolute;left:0;color:var(--gilt)}
+.voice-list b{font-weight:600;color:var(--ink)}
+
+.empty{text-align:center;padding:70px 20px;color:var(--ink-dim)}
+.empty .ic{width:30px;height:30px;color:var(--gilt);display:block;margin:0 auto 8px}
+.empty .big{font-family:var(--disp);font-size:30px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.empty button{margin-top:14px}
+
+.benediction{
+  max-width:760px;margin:26px auto 0;text-align:center;
+  font-style:italic;color:var(--ink-dim);font-size:15.5px;line-height:1.7;
+}
+.benediction .ic{width:16px;height:16px;color:var(--gilt);display:block;margin:0 auto 8px}
+.benediction .src{font-family:var(--mono);font-style:normal;font-size:10px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gilt);display:block;margin-top:8px}
+
+/* ---------- collection plate (give) ---------- */
+.plate{max-width:760px;margin:30px auto 0;text-align:center;
+  background:linear-gradient(140deg, rgba(168,122,34,.12), rgba(253,248,234,.7) 60%);
+  border:1px solid rgba(168,122,34,.5);border-radius:16px;
+  padding:24px 20px 22px;box-shadow:var(--shadow)}
+.plate .ic{width:26px;height:26px;color:var(--gilt);display:block;margin:0 auto 8px}
+.plate-label{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gilt)}
+.plate-title{font-family:var(--disp);font-weight:800;font-size:26px;color:var(--ink);margin:3px 0 4px}
+.plate-lede{font-style:italic;color:var(--ink-dim);font-size:15px;max-width:52ch;margin:0 auto;line-height:1.6}
+.plate-lede b{font-style:normal;color:var(--ember);font-weight:600}
+.plate-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0 6px}
+.plate-btn{display:flex;flex-direction:column;align-items:center;gap:3px;
+  background:var(--card);border:1px solid var(--card-edge);border-radius:13px;
+  padding:13px 8px 11px;cursor:pointer;color:var(--ink);font-family:var(--body);
+  transition:transform .15s,border-color .15s,box-shadow .15s}
+.plate-btn:hover:not(:disabled){transform:translateY(-2px);border-color:var(--gilt);box-shadow:var(--shadow)}
+.plate-btn:disabled{opacity:.55;cursor:default}
+.plate-btn .ic{width:18px;height:18px;color:var(--gilt);margin-bottom:3px}
+.plate-btn b{font-family:var(--disp);font-weight:700;font-size:14.5px;line-height:1.15}
+.plate-btn small{font-family:var(--body);font-style:italic;font-size:11.5px;color:var(--ink-dim);line-height:1.3}
+.plate-btn .plate-price{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--ember);margin-top:4px}
+.plate-status{font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--ink-dim);min-height:14px;margin-top:8px}
+.plate-status.ok{color:var(--warren)}
+.plate-status.err{color:var(--graham)}
+.plate-fine{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--gilt);margin-top:10px;line-height:1.5}
+@media(max-width:560px){.plate-grid{grid-template-columns:repeat(2,1fr)}}
+
+/* ---------- lesson plan: suggestion banner ---------- */
+.lp-banner{max-width:1120px;margin:10px auto 4px;
+  background:linear-gradient(140deg, var(--gilt-soft), rgba(253,248,234,.7) 60%);
+  border:1px solid rgba(168,122,34,.5);border-left:4px solid var(--pc,var(--gilt));
+  border-radius:14px;padding:16px 18px;box-shadow:var(--shadow)}
+.lp-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gilt);display:flex;align-items:center;gap:7px}
+.lp-kicker .ic{width:14px;height:14px}
+.lp-title{font-family:var(--disp);font-weight:800;font-size:21px;line-height:1.1;color:var(--ink);margin:5px 0 3px}
+.lp-sub{font-style:italic;color:var(--ink-dim);font-size:14px;line-height:1.5}
+.lp-steps{display:flex;gap:8px;flex-wrap:wrap;margin:11px 0 4px}
+.lp-step{display:flex;align-items:center;gap:7px;font-family:var(--body);font-size:12.5px;color:var(--ink);
+  background:var(--card);border:1px solid var(--card-edge);border-radius:999px;padding:5px 12px}
+.lp-step b{font-family:var(--mono);font-size:10px;color:#fff8ef;background:var(--pc,var(--gilt));border-radius:50%;width:18px;height:18px;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.lp-open{margin-top:12px;font-family:var(--disp);font-weight:700;font-size:15px;
+  background:var(--pc,var(--ember));color:#fff8ef;border:0;border-radius:999px;padding:10px 22px;cursor:pointer;
+  box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;display:inline-flex;align-items:center;gap:7px}
+.lp-open .ic{width:15px;height:15px}
+.lp-open:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(122,86,32,.25)}
+
+/* ---------- study view (full-screen, printable lesson plan) ---------- */
+body.plan-open{overflow:hidden}
+.plan-view{position:fixed;inset:0;z-index:210;overflow-y:auto;-webkit-overflow-scrolling:touch;display:none;
+  background:
+    radial-gradient(900px 520px at 50% -40px, rgba(255,238,196,.95), transparent 70%),
+    radial-gradient(760px 520px at 100% 100%, rgba(196,128,60,.10), transparent 70%),
+    var(--paper);}
+.plan-view.open{display:block}
+.pv-top{position:sticky;top:0;z-index:5;display:flex;gap:10px;align-items:center;justify-content:space-between;
+  background:rgba(247,236,212,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--card-edge);
+  padding:11px max(18px,env(safe-area-inset-left));}
+.pv-back,.pv-print{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  background:var(--card);border:1px solid var(--card-edge);color:var(--ink);border-radius:999px;
+  padding:8px 16px;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+.pv-back .ic,.pv-print .ic{width:14px;height:14px}
+.pv-back:hover,.pv-print:hover{border-color:var(--gilt)}
+.pv-print{background:var(--pc,var(--ember));color:#fff8ef;border-color:transparent}
+.pv-inner{max-width:780px;margin:0 auto;padding:26px max(18px,env(safe-area-inset-left)) 60px}
+.pv-eyebrow{font-family:var(--mono);font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--pc,var(--gilt));display:flex;align-items:center;gap:8px}
+.pv-eyebrow .ic{width:14px;height:14px}
+.pv-title{font-family:var(--disp);font-weight:900;font-size:clamp(32px,7vw,50px);line-height:1.02;letter-spacing:-.015em;color:var(--ink);margin:8px 0 6px}
+.pv-anchor{font-style:italic;color:var(--gilt);font-size:14px;font-weight:500;display:flex;align-items:center;gap:7px}
+.pv-anchor .ic{width:14px;height:14px;flex:none}
+.pv-intro{font-size:16px;color:#4d3f2c;line-height:1.65;margin:14px 0 4px;max-width:64ch}
+.pv-for{font-style:italic;color:var(--ink-dim);font-size:14px;line-height:1.6;
+  border-left:3px solid var(--pc,var(--gilt));padding:4px 0 4px 14px;margin:12px 0 4px}
+.pv-howto{background:linear-gradient(140deg,var(--gilt-soft),rgba(253,248,234,.6));
+  border:1px solid rgba(168,122,34,.4);border-radius:12px;padding:14px 16px;margin:18px 0 8px;font-size:14px;color:var(--ink);line-height:1.6}
+.pv-howto b{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gilt);display:block;margin-bottom:5px}
+.pv-section-head{font-family:var(--disp);font-weight:800;font-size:24px;color:var(--ink);margin:30px 0 4px;display:flex;align-items:center;gap:9px}
+.pv-section-head .ic{width:19px;height:19px;color:var(--pc,var(--gilt))}
+.session{background:var(--card);border:1px solid var(--card-edge);border-left:4px solid var(--pc,var(--gilt));
+  border-radius:var(--r);padding:18px 18px 20px;margin:16px 0;box-shadow:var(--shadow)}
+.s-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.s-num{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#fff8ef;
+  background:var(--pc,var(--gilt));border-radius:5px;padding:4px 9px;font-weight:700}
+.s-src{font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-dim)}
+.s-title{font-family:var(--disp);font-weight:700;font-size:23px;line-height:1.12;letter-spacing:-.01em;margin:9px 0 12px}
+.session .player{border-radius:11px;overflow:hidden;aspect-ratio:16/9}
+.session .yt-link{margin:9px 0 2px}
+.s-read{font-style:italic;color:var(--gilt);font-size:13.5px;font-weight:500;display:flex;align-items:center;gap:7px;margin-top:11px}
+.s-read .ic{width:14px;height:14px;flex:none}
+.s-focus{font-size:14.5px;color:#4d3f2c;line-height:1.6;margin-top:10px}
+.s-focus b{color:var(--ember);font-style:normal}
+.q-block{margin-top:14px;border-top:1px dashed var(--card-edge);padding-top:13px}
+.q-label{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--pc,var(--gilt));margin-bottom:8px}
+.q-list{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:9px}
+.q-list li{font-size:14.5px;color:var(--ink);line-height:1.55;padding-left:4px}
+.q-list li::marker{color:var(--pc,var(--gilt));font-family:var(--disp);font-weight:700}
+.s-takeaway{display:flex;gap:9px;align-items:flex-start;margin-top:14px;padding-top:12px;border-top:1px dashed var(--card-edge);font-style:italic;color:var(--ember);font-size:14.5px;line-height:1.5}
+.s-takeaway .ic{width:16px;height:16px;color:var(--gilt);flex:none;margin-top:2px}
+.pv-review{background:linear-gradient(140deg,rgba(168,122,34,.1),rgba(253,248,234,.7) 60%);border:1px solid rgba(168,122,34,.45);border-radius:14px;padding:18px 18px 20px;margin:8px 0}
+.pv-block{margin:22px 0}
+.pv-block .lead{font-style:italic;color:var(--ink-dim);font-size:14.5px;line-height:1.6;margin:2px 0 12px;max-width:62ch}
+.pv-prayer{font-style:italic;color:#3c2f1e;font-size:16px;line-height:1.7;border-left:4px solid var(--pc,var(--gilt));padding:6px 0 6px 16px;max-width:62ch}
+.pv-foot{text-align:center;margin-top:30px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gilt)}
+@media print{
+  body>*{display:none!important}
+  .plan-view{display:block!important;position:static!important;overflow:visible!important;background:#fff!important;color:#000}
+  .pv-top{display:none!important}
+  .pv-inner{max-width:none;padding:0}
+  .session,.pv-review{box-shadow:none;break-inside:avoid;page-break-inside:avoid}
+  .session .player,.session .yt-link{display:none!important}
+  .pv-title,.pv-section-head,.s-title{color:#000}
+}
+
+footer{
+  max-width:1120px;margin:14px auto 0;padding-top:20px;padding-bottom:44px;
+  border-top:1px solid var(--card-edge);
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;
+  color:#9c8762;text-transform:uppercase;line-height:2;
+}
+footer .ic{width:13px;height:13px;color:var(--gilt);margin-right:6px}
+
+/* short landscape (phones rotated): reclaim vertical space */
+@media (orientation:landscape) and (max-height:540px){
+  header{padding-top:14px;padding-bottom:6px}
+  h1{font-size:clamp(30px,9.5vh,52px)}
+  .hello{display:none}
+  .tagline{font-size:13.5px}
+  .mark-bg{width:180px;height:180px;top:-40px}
+  .toolbar{position:static}
+  .toolbar-inner{gap:7px}
+  .tab{padding:6px 6px 5px}
+  .tab small{display:none}
+}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--ember);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .card:hover{transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+
+<svg style="display:none" aria-hidden="true">
+  <symbol id="i-rays" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="4"/>
+    <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M19.8 4.2l-2.1 2.1M6.3 17.7l-2.1 2.1"/>
+  </symbol>
+  <symbol id="i-flame" viewBox="0 0 24 24">
+    <path d="M12 3c-3 4-6 6-6 10a6 6 0 0 0 12 0c0-4-3-6-6-10z"/>
+    <path d="M12 12c-1.2 1.4-2 2.3-2 3.7a2 2 0 0 0 4 0c0-1.4-.8-2.3-2-3.7z"/>
+  </symbol>
+  <symbol id="i-book" viewBox="0 0 24 24">
+    <path d="M12 6C9.5 4.4 6.5 4.4 3.5 5.6V19c3-1.2 6-1.2 8.5.4 2.5-1.6 5.5-1.6 8.5-.4V5.6C17.5 4.4 14.5 4.4 12 6z"/>
+    <path d="M12 6v13.4"/>
+  </symbol>
+  <symbol id="i-quote" viewBox="0 0 24 24">
+    <path d="M5 6.5h5.5v5.5H8c0 2.2 1 3.3 3 3.7v2.8c-4.3-.6-6.5-3.2-6.5-7.6V6.5zM13.5 6.5H19v5.5h-2.5c0 2.2 1 3.3 3 3.7v2.8c-4.3-.6-6.5-3.2-6.5-7.6V6.5z"/>
+  </symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24">
+    <path d="M12 20s-7.2-4.7-9.6-8.6C.6 8.4 2.6 5 6 5c2 0 3.5 1 4.5 2.6C11.5 6 13 5 15 5c3.4 0 5.4 3.4 3.6 6.4C19.2 15.3 12 20 12 20z"/>
+  </symbol>
+  <symbol id="i-note" viewBox="0 0 24 24">
+    <path d="M9 18V5l10-2v13"/>
+    <circle cx="6" cy="18" r="3"/>
+    <circle cx="16" cy="16" r="3"/>
+  </symbol>
+  <symbol id="i-dove" viewBox="0 0 24 24">
+    <path d="M4 13c4.7-.1 8-1.7 10-4.8 1.9 2.7 3.9 4.2 6 4.6-2.4 1.2-4.9 1.4-7.5.7-1.5 2.6-3.9 4.2-7.2 4.8 1.4-1.5 2.1-3.3 2.1-5.4C6.4 13 5.3 13.1 4 13z"/>
+    <path d="M14 8.2c.8-1.7.7-3.2-.3-4.7 2.4.7 4 2.1 4.9 4.2"/>
+  </symbol>
+  <symbol id="i-cross" viewBox="0 0 24 24">
+    <path d="M12 3v18M7 8h10"/>
+  </symbol>
+  <symbol id="i-anchor" viewBox="0 0 24 24">
+    <path d="M12 5v14M8 9h8M5 14c1.2 3.2 3.5 5 7 5s5.8-1.8 7-5"/>
+    <circle cx="12" cy="4" r="2"/>
+    <path d="M5 14l-2 2M19 14l2 2"/>
+  </symbol>
+  <symbol id="i-comfort" viewBox="0 0 24 24">
+    <path d="M7 13.5V9a5 5 0 0 1 10 0v4.5"/>
+    <path d="M5 13.5h14v2.2a4.3 4.3 0 0 1-4.3 4.3H9.3A4.3 4.3 0 0 1 5 15.7v-2.2z"/>
+    <path d="M9 9c1.5 1 4.5 1 6 0"/>
+  </symbol>
+  <symbol id="i-compass" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="8.5"/>
+    <path d="M15.2 8.8l-1.9 4.5-4.5 1.9 1.9-4.5 4.5-1.9z"/>
+  </symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24">
+    <path d="M12 3l7 3v5.2c0 4.2-2.6 7.6-7 9.8-4.4-2.2-7-5.6-7-9.8V6l7-3z"/>
+    <path d="M9 12l2 2 4-4"/>
+  </symbol>
+  <symbol id="i-lamp" viewBox="0 0 24 24">
+    <path d="M8 14h8l-1.2-7H9.2L8 14zM12 14v6M8.5 20h7"/>
+    <path d="M10 7c.4-1.9 1.1-3.2 2-4 .9.8 1.6 2.1 2 4"/>
+  </symbol>
+  <symbol id="i-steps" viewBox="0 0 24 24">
+    <path d="M5 18h5v3H5zM9 12h5v3H9zM14 6h5v3h-5z"/>
+    <path d="M7.5 18v-3M11.5 12V9M16.5 6V3"/>
+  </symbol>
+  <symbol id="i-help" viewBox="0 0 24 24">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M9.5 9a2.8 2.8 0 0 1 5.2 1.4c0 2-2.7 2.1-2.7 4.1M12 18h.01"/>
+  </symbol>
+  <symbol id="i-chain-break" viewBox="0 0 24 24">
+    <path d="M8.5 14.5l-1.2 1.2a3 3 0 0 1-4.2-4.2l2.4-2.4a3 3 0 0 1 4.2 0M15.5 9.5l1.2-1.2a3 3 0 0 1 4.2 4.2l-2.4 2.4a3 3 0 0 1-4.2 0M8 5l1 2M15 17l1 2M12 7l.7-2M11.3 19l.7-2"/>
+  </symbol>
+  <symbol id="i-scale" viewBox="0 0 24 24">
+    <path d="M12 3v18M5 7h14M7 7l-4 7h8L7 7zM17 7l-4 7h8l-4-7zM8 21h8"/>
+  </symbol>
+  <symbol id="i-crown" viewBox="0 0 24 24">
+    <path d="M4 8l4 4 4-7 4 7 4-4-2 10H6L4 8zM6 21h12"/>
+  </symbol>
+  <symbol id="i-sprout" viewBox="0 0 24 24">
+    <path d="M12 21V10"/>
+    <path d="M12 13c-4.2 0-6.7-2.2-7.5-6.5C8.7 6.5 11.2 8.7 12 13zM12 11c.5-3.6 2.7-5.7 6.5-6.2-.3 4-2.5 6.1-6.5 6.2z"/>
+  </symbol>
+  <symbol id="i-hands" viewBox="0 0 24 24">
+    <path d="M7 12l3 3c1 1 2.6 1 3.6 0L18 10.6a2 2 0 0 0-2.8-2.8L12 11"/>
+    <path d="M8 13l-1.8-1.8a2 2 0 0 0-2.8 2.8l4 4A6 6 0 0 0 12 20h4"/>
+  </symbol>
+  <symbol id="i-gift" viewBox="0 0 24 24">
+    <path d="M4 10h16v10H4zM3 7h18v3H3zM12 7v13"/>
+    <path d="M12 7c-2.5 0-4-1-4-2.4C8 3.7 8.7 3 9.6 3 11.1 3 12 5 12 7zM12 7c2.5 0 4-1 4-2.4 0-.9-.7-1.6-1.6-1.6C12.9 3 12 5 12 7z"/>
+  </symbol>
+</svg>
+
+<div class="splash" id="splash" role="dialog" aria-label="Welcome to the Sermon Vault" aria-modal="true">
+  <div class="glass" aria-hidden="true">
+    <span style="background:var(--graham)"></span><span style="background:var(--meyer)"></span>
+    <span style="background:var(--gilt)"></span><span style="background:var(--evans)"></span>
+    <span style="background:var(--warren)"></span><span style="background:var(--stanley)"></span>
+    <span style="background:var(--osteen)"></span><span style="background:var(--mlk)"></span>
+    <span style="background:var(--jakes)"></span><span style="background:var(--sheen)"></span>
+    <span style="background:var(--spurgeon)"></span><span style="background:var(--laurie)"></span>
+    <span style="background:var(--franklin)"></span>
+  </div>
+  <div class="splash-inner">
+    <div class="rose-wrap" id="roseWrap"></div>
+    <p class="splash-kicker">✦ &nbsp;A Curated Archive&nbsp; ✦</p>
+    <h1 class="splash-title">The Sermon <span class="gilt">Vault</span></h1>
+    <p class="splash-verse">“So then faith cometh by hearing, and hearing by the word of God.”<span>Romans 10:17 · KJV</span></p>
+    <p class="splash-lede">A quiet place to sit with the voices that shaped modern faith — their landmark messages on film, the books behind them, the verses they returned to again and again, and the hymns sung at the great moments.</p>
+    <div class="splash-cards">
+      <div><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg><b>Sermons</b><span id="scSermons"></span></div>
+      <div><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg><b>Books</b><span id="scBooks"></span></div>
+      <div><svg class="ic ic-fill" aria-hidden="true"><use href="#i-quote"/></svg><b>Passages</b><span id="scPassages"></span></div>
+      <div><svg class="ic" aria-hidden="true"><use href="#i-note"/></svg><b>Hymns</b><span id="scHymns"></span></div>
+    </div>
+    <p class="splash-voices" id="splashVoices"></p>
+    <button class="enter-btn" id="enterBtn" type="button">Enter the Vault →</button>
+    <p class="splash-foot"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Search by topic, or tell it what you're going through</p>
+  </div>
+</div>
+
+<div class="glass" aria-hidden="true">
+  <span style="background:var(--graham)"></span><span style="background:var(--meyer)"></span>
+  <span style="background:var(--gilt)"></span><span style="background:var(--evans)"></span>
+  <span style="background:var(--warren)"></span><span style="background:var(--stanley)"></span>
+  <span style="background:var(--osteen)"></span><span style="background:var(--mlk)"></span>
+  <span style="background:var(--jakes)"></span><span style="background:var(--sheen)"></span>
+  <span style="background:var(--spurgeon)"></span><span style="background:var(--laurie)"></span>
+  <span style="background:var(--franklin)"></span>
+</div>
+
+<header>
+  <svg class="mark-bg" aria-hidden="true"><use href="#i-rays"/></svg>
+  <div class="eyebrow"><span class="dot" aria-hidden="true"></span> A CURATED ARCHIVE &nbsp;·&nbsp; THIRTEEN VOICES, ONE VAULT</div>
+  <h1>The Sermon <span class="gilt">Vault</span></h1>
+  <div class="rule" aria-hidden="true"></div>
+  <p class="hello"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg><span id="helloText">Welcome in — pull up a chair.</span></p>
+  <p class="tagline">Landmark messages, the books behind them, the verses they returned to — and the hymns sung at the great moments. Search by topic, or tell it what you're going through.</p>
+</header>
+
+<div class="daily-wrap">
+  <button class="daily" id="dailyBtn" type="button" aria-label="Read today's word">
+    <span class="d-label"><svg class="ic" style="width:12px;height:12px" aria-hidden="true"><use href="#i-rays"/></svg>Today's word</span>
+    <span class="d-ref" id="dailyRef"></span>
+    <span class="d-snip" id="dailySnip"></span>
+    <span class="d-tail">Read it →</span>
+  </button>
+</div>
+
+<nav class="tabs" aria-label="Collections">
+  <button class="tab" data-tab="sermons" type="button"><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg>Sermons<small id="nSermons"></small></button>
+  <button class="tab" data-tab="books" type="button"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg>Books<small id="nBooks"></small></button>
+  <button class="tab" data-tab="passages" type="button"><svg class="ic ic-fill" aria-hidden="true"><use href="#i-quote"/></svg>Passages<small id="nPassages"></small></button>
+  <button class="tab" data-tab="hymns" type="button"><svg class="ic" aria-hidden="true"><use href="#i-note"/></svg>Hymns<small id="nHymns"></small></button>
+</nav>
+
+<div class="toolbar">
+  <div class="toolbar-inner">
+    <div class="search-row">
+      <label class="search">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#a87a22" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+        <input id="q" type="search" placeholder="Search title, topic, preacher, scripture…" autocomplete="off" aria-label="Search the vault">
+      </label>
+      <button class="clear-btn" id="clearAll" type="button">Reset</button>
+    </div>
+
+    <div class="pill-row" id="preacherRow" role="group" aria-label="Filter by preacher"></div>
+
+    <div class="pill-row" role="group" aria-label="A word for what you're going through">
+      <span class="rail-label"><svg class="ic" style="width:12px;height:12px" aria-hidden="true"><use href="#i-heart"/></svg> A word for…</span>
+      <span id="situationRail" style="display:contents"></span>
+    </div>
+
+    <div class="pill-row" id="topicRow" role="group" aria-label="Filter by topic"></div>
+  </div>
+</div>
+
+<div class="count-row">
+  <span><svg class="ic" aria-hidden="true"><use href="#i-rays"/></svg><span id="countLabel"></span></span>
+  <span id="hintLabel">Tap a poster to play</span>
+</div>
+
+<div id="lessonPlan" style="display:none"></div>
+
+<main>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" hidden>
+    <svg class="ic" aria-hidden="true"><use href="#i-lamp"/></svg>
+    <div class="big">A quiet shelf</div>
+    <p>Nothing here matches just yet — and that's all right.<br>Try another tab, a broader topic, or start fresh.</p>
+    <button class="clear-btn" type="button" onclick="resetAll()">Start fresh</button>
+  </div>
+</main>
+
+<aside class="voices">
+  <div class="voices-panel">
+    <h3><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg> More voices for the vault</h3>
+    <p class="lede">Thirteen seats filled, and the pulpit still has room. Worth a wing whenever you're ready:</p>
+    <ul class="voice-list">
+      <li><b>Steven Furtick</b> — Elevation Church; the biggest sermon channel on YouTube today</li>
+      <li><b>Max Lucado</b> — pastor-author of <i>Anxious for Nothing</i>; gentle as a back porch</li>
+      <li><b>Priscilla Shirer</b> — Bible teacher (and Tony Evans's daughter); <i>Fervent</i>, <i>War Room</i></li>
+      <li><b>David Jeremiah</b> — Turning Point; fifty years of steady radio exposition</li>
+      <li><b>John MacArthur</b> — Grace Community; verse-by-verse for the deep-study wing</li>
+      <li><b>Robert Schuller</b> — Hour of Power from the Crystal Cathedral; Osteen's forerunner</li>
+      <li><b>Chuck Swindoll</b> — Insight for Living; the storyteller's storyteller</li>
+      <li><b>Billy Sunday &amp; Aimee Semple McPherson</b> — the tent-revival era; a historic audio wing</li>
+    </ul>
+  </div>
+</aside>
+
+<p class="benediction">
+  <svg class="ic" aria-hidden="true"><use href="#i-dove"/></svg>
+  The LORD bless thee, and keep thee: the LORD make his face shine upon thee, and be gracious unto thee:
+  the LORD lift up his countenance upon thee, and give thee peace.
+  <span class="src">Numbers 6:24–26 · KJV</span>
+</p>
+
+<section class="plate" id="plate" aria-label="The Collection Plate">
+  <svg class="ic" aria-hidden="true"><use href="#i-dove"/></svg>
+  <div class="plate-label">As you go — the plate is passed</div>
+  <h2 class="plate-title">The Collection Plate</h2>
+  <p class="plate-lede">Sermon Vault is free, and it stays that way. If it has fed you, you’re welcome to give. <b>Every penny of profit goes to charitable causes around the world.</b></p>
+  <div class="plate-grid"><!-- gift tiers injected here --></div>
+  <p class="plate-status" role="status" aria-live="polite"></p>
+  <p class="plate-fine">A gift to support the Vault — given freely, never required. Profits are donated to charity. “God loveth a cheerful giver.” · 2 Corinthians 9:7</p>
+</section>
+
+<div class="plan-view" id="planView" role="dialog" aria-modal="true" aria-label="Lesson plan" aria-hidden="true"></div>
+
+<footer>
+  <button class="reopen" id="reopenSplash" type="button">✦ Show the welcome</button><br>
+  <svg class="ic" aria-hidden="true"><use href="#i-dove"/></svg>Go in peace · videos stream from public YouTube uploads<br>
+  Scripture quotations are King James Version (public domain) · summaries are editorial descriptions<br>
+  All messages &amp; books © their respective ministries, estates &amp; publishers · embedded via public YouTube uploads
+</footer>
+
+<script>
+/* ============ DATA ============ */
+const PREACHERS = {
+  graham:{name:"Billy Graham"},
+  warren:{name:"Rick Warren"},
+  osteen:{name:"Joel Osteen"},
+  jakes:{name:"T.D. Jakes"},
+  stanley:{name:"Charles Stanley"},
+  keller:{name:"Tim Keller"},
+  sheen:{name:"Fulton Sheen"},
+  mlk:{name:"Dr. King"},
+  meyer:{name:"Joyce Meyer"},
+  evans:{name:"Tony Evans"},
+  spurgeon:{name:"Charles Spurgeon"},
+  laurie:{name:"Greg Laurie"},
+  franklin:{name:"Jentezen Franklin"}
+};
+
+const SERMONS = [
+  { id:"1aZoqIwHsdM", preacher:"graham", title:"The Yankee Stadium Crusade",
+    year:"1957", venue:"Yankee Stadium · New York",
+    desc:"July 20, 1957: roughly 100,000 people pack Yankee Stadium — then a record crowd — at the peak of the 16-week New York Crusade. Vintage Graham at full force: sin, grace, and the invitation.",
+    scripture:null, topics:["Salvation","Hope","Eternity"] },
+  { id:"U89zkUZPd5w", embedSrc:"https://www.youtube.com/embed/U89zkUZPd5w?si=ES8Qe9JqWNkQl9um", preacher:"graham", title:"Who Is Jesus?",
+    year:"1971", venue:"McCormick Place · Chicago",
+    desc:"At the height of the Jesus-movement era, Graham takes the question head-on — Christ's claims, His authority, His cross — and presses a packed Chicago hall toward a personal verdict.",
+    scripture:"Luke 11:29–32", topics:["Faith","Doubt","Salvation"] },
+  { id:"tN9GibDDI2U", preacher:"graham", title:"John 3:16",
+    year:"1991", venue:"Central Park Crusade · New York",
+    desc:"Graham builds an entire message on the one verse he preached more than any other — calling it the whole Gospel in a single sentence, applied to the headlines of the day.",
+    scripture:"John 3:16", topics:["Salvation","Faith","Hope"] },
+  { id:"90mj79GqWhc", preacher:"graham", title:"Technology, Faith & Human Shortcomings",
+    year:"1998", venue:"TED · Monterey, CA",
+    desc:"A 79-year-old Graham stands before Silicon Valley's brightest, marvels at what technology can fix — then names the three problems no invention solves: evil, suffering, and death. A legend from TED's archive.",
+    scripture:null, topics:["Suffering","Eternity","Faith"] },
+  { id:"y4eoW0JmZag", preacher:"graham", title:"The Cross",
+    year:"2013", venue:"My Hope America · final message",
+    desc:"Released on his 95th birthday and billed as his last message to the nation: a quiet, distilled half-hour on the cross, woven with the stories of Lecrae and Lacey Sturm.",
+    scripture:null, topics:["Salvation","Hope","Eternity"] },
+
+  { id:"GmHvYZ608oc", preacher:"warren", title:"What on Earth Am I Here For?",
+    year:"Saddleback", venue:"Lake Forest, CA",
+    desc:"The message behind the best-selling book: Warren walks through five purposes he believes God designed every life around — worship, fellowship, growth, service, and mission.",
+    scripture:null, topics:["Purpose","Calling & Service","Identity"] },
+  { id:"640BQNxB5mc", preacher:"warren", title:"A Life of Purpose",
+    year:"2006", venue:"TED · Monterey, CA",
+    desc:"Warren reflects on the crisis of purpose that followed his book's runaway success — and why he treats affluence and influence as tests of stewardship, not scorecards.",
+    scripture:null, topics:["Purpose","Calling & Service","Hope"] },
+  { id:"gaQ_oTp7tKY", preacher:"warren", title:"How We're Getting Through",
+    year:"2013", venue:"Saddleback · Lake Forest, CA",
+    desc:"Returning to the pulpit after the death of their son Matthew, Rick and Kay Warren speak with raw honesty about shock, sorrow, and the truths holding them up — widely considered Saddleback's most-watched message.",
+    scripture:"2 Corinthians 1:3–11", topics:["Grief & Loss","Suffering","Hope"] },
+  { id:"S82EJ14zlMc", preacher:"warren", title:"How to Keep From Stressing Out",
+    year:"Saddleback", venue:"Habits of Happiness series",
+    desc:"With personal stress near record levels, Warren works through Paul's anti-stress recipe in Philippians 4 — worry about nothing, pray about everything, give thanks in anything.",
+    scripture:"Philippians 4:6–7", topics:["Worry & Peace","Hope"] },
+
+  { id:"gRmi3cQ2hBw", preacher:"osteen", title:"Empty Out the Negative",
+    year:"Lakewood", venue:"Houston, TX",
+    desc:"Osteen's picture of the heart as a container: worry, guilt, and bitterness occupy the space meant for joy and peace — so release them, and make room for what God wants to pour in.",
+    scripture:"Psalm 103:5", topics:["Worry & Peace","Words & Attitude","Hope"] },
+  { id:"rG_syY4T0FE", preacher:"osteen", title:"Trouble Is Transportation",
+    year:"2016", venue:"Night of Hope · Comerica Park, Detroit",
+    desc:"Before a stadium crowd in Detroit, Osteen argues that difficulty is not a dead end but a vehicle — closed doors, setbacks, and bad breaks moving you toward what's next.",
+    scripture:"Psalm 89:21", topics:["Suffering","Hope","Purpose"] },
+  { id:"AwtIATPEZvQ", preacher:"osteen", title:"The Power of I Am",
+    year:"2016", venue:"Super Soul Sunday · OWN",
+    desc:"The full conversation built around his most-watched sermon — Osteen unpacks for Oprah why whatever follows the words \u201CI am\u201D tends to come looking for you, and how to speak identity instead of defeat.",
+    scripture:"Psalm 139", topics:["Identity","Words & Attitude","Faith"] },
+  { id:"4OWHSna_gbw", preacher:"osteen", title:"Getting Unstuck",
+    year:"2025", venue:"Lakewood · Houston, TX",
+    desc:"For anyone circling the same regret: past mistakes did not cancel the assignment. Osteen on breaking out of stalled seasons and moving again.",
+    scripture:null, topics:["Hope","Identity","Purpose"] },
+
+  { id:"A6224mKoiww", preacher:"jakes", title:"Nothing Just Happens",
+    year:"Potter's House", venue:"Dallas, TX",
+    desc:"Jakes preaches Ruth and Naomi: famine, loss, and a chance meeting in a barley field that was never chance at all. A signature message on God's hand in the detours.",
+    scripture:"Ruth 1–4", topics:["Purpose","Suffering","Hope"] },
+  { id:"b_u90j4Lcig", preacher:"jakes", title:"Nothing in Your Life Is Wasted",
+    year:"2019", venue:"Crushing series · TBN",
+    desc:"From the series behind his book Crushing: the press is not the end of the grape, it's the beginning of the wine. Jakes on what God does with seasons that flatten you.",
+    scripture:null, topics:["Suffering","Purpose","Hope"] },
+
+  { id:"yfIBIWHM6O8", preacher:"stanley", title:"Listening to God",
+    year:"In Touch", venue:"First Baptist Atlanta",
+    desc:"Stanley's calm, fatherly case that God still speaks — and that hearing Him is mostly a matter of making room: stillness, Scripture, and the willingness to obey what you hear.",
+    scripture:null, topics:["Prayer & Guidance","Faith","Worry & Peace"] },
+  { id:"m_1fCUlet50", preacher:"stanley", title:"When We Don't Understand Why",
+    year:"In Touch", venue:"First Baptist Atlanta",
+    desc:"For the seasons that make no sense: Stanley on trusting God's character when His reasons stay hidden — without pretending the questions don't hurt.",
+    scripture:null, topics:["Suffering","Doubt","Hope"] },
+
+  { id:"OU69so6VjHA", preacher:"keller", title:"A Reason for Living",
+    year:"Redeemer", venue:"New York City",
+    desc:"Keller's gentle, philosophical mode: take the meaninglessness of life seriously — more seriously than the skeptic does — and follow it honestly to where meaning can actually hold weight.",
+    scripture:null, topics:["Purpose","Doubt","Identity"] },
+
+  { id:"2FLOvVJoaZc", preacher:"sheen", title:"Pain and Suffering",
+    year:"1950s", venue:"Life Is Worth Living · network TV",
+    desc:"In cape and chalkboard, the original television homilist takes a half-hour of prime time to ask why suffering exists — and what the cross changes about the answer.",
+    scripture:null, topics:["Suffering","Hope","Eternity"] },
+  { id:"T7hHNmm1OBQ", preacher:"sheen", title:"Good Friday",
+    year:"1950s", venue:"Life Is Worth Living · network TV",
+    desc:"Sheen at the height of his Emmy-winning run, walking thirty million viewers through the meaning of the cross with nothing but wit, a chalkboard, and an angel to erase it.",
+    scripture:null, topics:["Salvation","Eternity","Faith"] },
+
+  { id:"TmZvkHpX_Q4", preacher:"mlk", title:"I've Been to the Mountaintop",
+    year:"1968", venue:"Mason Temple · Memphis, TN",
+    desc:"April 3, 1968 — the night before his death, with a storm shaking the windows, King preaches for the striking sanitation workers and closes from the mountaintop: he has seen the Promised Land. A sermon first, history second.",
+    scripture:null, topics:["Justice & Courage","Hope","Eternity"] },
+
+  { id:"DbqimWcJnAI", preacher:"meyer", title:"Battlefield of the Mind",
+    year:"Full sermon", venue:"Joyce Meyer Ministries",
+    desc:"The teaching behind her best-known book: the war is won or lost between your ears. Meyer is candid about her own \u201Cstinking thinking\u201D and how Scripture rebuilt it, thought by thought.",
+    scripture:"Romans 12:2", topics:["Words & Attitude","Worry & Peace","Identity"] },
+
+  { id:"rGFkj0Vmdz4", preacher:"evans", title:"The Detours of Provision",
+    year:"Detours series", venue:"Oak Cliff Bible Fellowship · Dallas",
+    desc:"From his Joseph series: God rarely moves you in a straight line. Evans on the dry stretches between the dream and the destiny — and why the detour is doing the preparing.",
+    scripture:"Genesis 39–41", topics:["Purpose","Suffering","Hope"] },
+
+  { id:"6GNOICK7Wrk", preacher:"laurie", title:"The Meaning of Life",
+    year:"2025", venue:"Harvest · via Daystar",
+    desc:"The evangelist behind the Jesus Revolution film makes his case to a searching, lonely generation: meaning isn't found by chasing happiness, but as the byproduct of putting Christ first.",
+    scripture:"Philippians 1:21", topics:["Purpose","Salvation","Hope"] },
+  { id:"FzJtF57MTDI", preacher:"laurie", title:"Overcoming or Overcome",
+    year:"2025", venue:"Harvest Christian Fellowship · Riverside, CA",
+    desc:"Laurie in his weekly teaching mode: the choice every believer faces in trouble — to be overcome by the circumstance, or to overcome it by faith.",
+    scripture:"1 John 5:4", topics:["Suffering","Faith","Hope"] },
+
+  { id:"rc7FNWVTC3E", preacher:"franklin", title:"Speak Life In Low Places",
+    year:"2023", venue:"Free Chapel · Gainesville, GA",
+    desc:"Franklin on the words you speak in the valley: when everything around you says defeat, your own mouth can call life into the lowest places of your circumstances.",
+    scripture:"Ezekiel 37:4", topics:["Words & Attitude","Hope","Faith"] },
+  { id:"gJxHV8Cq7qM", preacher:"franklin", title:"Just Add Water",
+    year:"2021", venue:"Free Chapel · Gainesville, GA",
+    desc:"From Naaman dipping in the Jordan: the miracle was waiting on the far side of an instruction that made no sense. Franklin on obedience that unlocks what striving never could.",
+    scripture:"2 Kings 5:14", topics:["Faith","Healing & Freedom","Hope"] }
+];
+
+const BOOKS = [
+  { preacher:"graham", title:"Peace with God", year:"1953",
+    idea:"The signature book",
+    desc:"Graham's diagnosis of the restless modern soul — and his case that the cure runs through the cross. The problem of sin, the answer of grace, and what a life finally at peace with God looks like.",
+    scripture:"Romans 5:1", topics:["Salvation","Worry & Peace","Faith"] },
+  { preacher:"graham", title:"Angels: God's Secret Agents", year:"1975",
+    idea:"The surprise bestseller",
+    desc:"What Scripture actually says about angels — messengers, protectors, ministers — carefully separated from folklore. It became one of the decade's best-selling religious books.",
+    scripture:"Hebrews 1:14", topics:["Faith","Eternity"] },
+  { preacher:"graham", title:"Just As I Am", year:"1997",
+    idea:"The autobiography",
+    desc:"Named for the altar-call hymn sung at his crusades: the full arc from Carolina dairy farm to counselor of presidents, told with candor about both the platform and its costs.",
+    scripture:"1 Corinthians 15:10", topics:["Calling & Service","Faith"] },
+  { preacher:"graham", title:"Nearing Home", year:"2011",
+    idea:"On finishing well",
+    desc:"Written in his nineties: aging is not a detour but an assignment. Graham on purpose, dignity, loss, and getting ready for the journey's last leg.",
+    scripture:"Psalm 71:18", topics:["Eternity","Hope","Purpose"] },
+
+  { preacher:"warren", title:"The Purpose Driven Life", year:"2002",
+    idea:"40 days · 5 purposes",
+    desc:"A 40-day walk through the five purposes Warren believes every life was made for — worship, fellowship, growth, service, mission. One of the best-selling nonfiction books in history, and it famously opens by pointing the reader away from themselves.",
+    scripture:"Ephesians 2:10", topics:["Purpose","Identity","Calling & Service"] },
+  { preacher:"warren", title:"The Purpose Driven Church", year:"1995",
+    idea:"The Saddleback blueprint",
+    desc:"The ministry playbook that preceded the bestseller: healthy churches are built on purpose, not personality or programs. Still standard reading in seminaries and church-planting circles.",
+    scripture:"Matthew 28:19–20", topics:["Calling & Service","Purpose"] },
+  { preacher:"warren", title:"The Daniel Plan", year:"2013",
+    idea:"Faith · Food · Fitness · Focus · Friends",
+    desc:"Written with physicians Daniel Amen and Mark Hyman after a churchwide health experiment: a faith-anchored framework for getting well in community rather than alone.",
+    scripture:"Daniel 1:8", topics:["Hope","Purpose"] },
+  { preacher:"warren", title:"The Purpose of Christmas", year:"2008",
+    idea:"A small book for the table",
+    desc:"Three purposes behind the holiday — celebration, salvation, reconciliation — written to be handed to skeptics and saints alike at the Christmas table.",
+    scripture:"Luke 2:10–11", topics:["Hope","Salvation"] },
+
+  { preacher:"osteen", title:"Your Best Life Now", year:"2004",
+    idea:"The book that launched him",
+    desc:"Seven steps to living at full potential — enlarge your vision, mind your thoughts and words, let go of the past, choose happiness daily. It camped on bestseller lists for years and defined his voice.",
+    scripture:"Ephesians 3:20", topics:["Hope","Words & Attitude","Identity"] },
+  { preacher:"osteen", title:"Become a Better You", year:"2007",
+    idea:"The follow-up",
+    desc:"Seven keys to keep growing: pressing past comfortable, breaking generational patterns, and winning the conversation you hold with yourself every day.",
+    scripture:"Philippians 1:6", topics:["Identity","Words & Attitude"] },
+  { preacher:"osteen", title:"I Declare", year:"2012",
+    idea:"31 days · 31 declarations",
+    desc:"A month of short declarations to speak over your life, one per day — built on his conviction that words set direction long before circumstances do.",
+    scripture:"Proverbs 18:21", topics:["Words & Attitude","Faith"] },
+  { preacher:"osteen", title:"The Power of I Am", year:"2015",
+    idea:"Two words that find you",
+    desc:"Whatever follows \u201CI am\u201D eventually comes looking for you: an argument for speaking identity instead of insecurity, drawn from Psalm 139 and the names of God.",
+    scripture:"Psalm 139:14", topics:["Identity","Words & Attitude"] },
+
+  { preacher:"jakes", title:"Woman, Thou Art Loosed!", year:"1993",
+    idea:"The sermon that became a movement",
+    desc:"Born from a Sunday school class for hurting women, it grew into a book, a conference, a film: healing for wounds carried so long they started to feel like identity.",
+    scripture:"Luke 13:12", topics:["Healing & Freedom","Hope","Identity"] },
+  { preacher:"stanley", title:"How to Listen to God", year:"1985",
+    idea:"The quiet discipline",
+    desc:"Stanley's case that God still speaks — through the Word, the Spirit, circumstances, and other believers — and his practical counsel for getting still enough to hear.",
+    scripture:"Proverbs 3:5–6", topics:["Prayer & Guidance","Faith"] },
+  { preacher:"keller", title:"The Reason for God", year:"2008",
+    idea:"For skeptics, with respect",
+    desc:"Honed on twenty years of Manhattan Q&A: the seven biggest doubts taken seriously, answered carefully, then a positive case for belief. The defining apologetic of its decade.",
+    scripture:"John 20:29", topics:["Doubt","Faith"] },
+  { preacher:"keller", title:"The Prodigal God", year:"2008",
+    idea:"Two lost sons",
+    desc:"A short re-reading of the most famous parable: the younger brother is lost in his badness, the elder in his goodness — and the father runs to both.",
+    scripture:"Luke 15:20", topics:["Salvation","Hope","Identity"] },
+  { preacher:"sheen", title:"Life of Christ", year:"1958",
+    idea:"The masterwork",
+    desc:"A decade in the writing, born out of a dark season of Sheen's own: the whole life of Jesus read backward from the cross, in the most elegant prose of his career.",
+    scripture:"John 1:14", topics:["Salvation","Faith","Eternity"] },
+  { preacher:"mlk", title:"Strength to Love", year:"1963",
+    idea:"The collected sermons",
+    desc:"King's pulpit work in print — including \u201CLoving Your Enemies,\u201D drafted in a Georgia jail. Nonviolence not as tactic but as spiritual discipline, sermon by sermon.",
+    scripture:"Matthew 5:44", topics:["Justice & Courage","Calling & Service","Faith"] },
+  { preacher:"meyer", title:"Battlefield of the Mind", year:"1995",
+    idea:"The signature",
+    desc:"Thirty years in print and counting: thoughts are the front line, and the mind is renewed the same way it was wrecked — one repeated thought at a time.",
+    scripture:"Romans 12:2", topics:["Words & Attitude","Worry & Peace"] },
+  { preacher:"evans", title:"Kingdom Man", year:"2012",
+    idea:"Alignment under God",
+    desc:"Evans's call for men to get every sphere — personal, family, church, community — lined up under God's rule, built on his favorite psalm.",
+    scripture:"Psalm 128:1", topics:["Calling & Service","Purpose","Identity"] },
+  { preacher:"spurgeon", title:"Morning and Evening", year:"1865",
+    idea:"Two readings a day",
+    desc:"The Prince of Preachers, distilled to a page at sunrise and a page at dusk. Still in print after 160 years — the Victorian devotional that never went out of style.",
+    scripture:"Lamentations 3:22–23", topics:["Hope","Faith"] },
+  { preacher:"spurgeon", title:"All of Grace", year:"1886",
+    idea:"Gospel for the plain man",
+    desc:"Spurgeon's plain-English explanation of salvation for the man in the street — no Latin, no hedging, all grace from the first page to the last.",
+    scripture:"Ephesians 2:8", topics:["Salvation","Faith","Hope"] },
+
+  { preacher:"laurie", title:"Jesus Revolution", year:"2018",
+    idea:"The book behind the film",
+    desc:"Written with Ellen Vaughn: the true story of the Jesus Movement that swept a generation in the late '60s and '70s — and swept up a teenage Greg Laurie with it. Adapted into the 2023 film.",
+    scripture:"2 Corinthians 5:17", topics:["Salvation","Hope","Identity"] },
+  { preacher:"laurie", title:"Tell Someone", year:"2016",
+    idea:"Everyday evangelism",
+    desc:"Sharing your faith without the awkwardness: Laurie's case that the gospel travels best one ordinary conversation at a time, and that anyone can do it.",
+    scripture:"Mark 16:15", topics:["Calling & Service","Salvation","Faith"] },
+
+  { preacher:"franklin", title:"Fasting", year:"2007",
+    idea:"The signature bestseller",
+    desc:"The book that put Free Chapel's annual 21-day fast on the map: why going without food opens a door to a deeper, more intimate, more powerful walk with God.",
+    scripture:"Joel 2:12", topics:["Prayer & Guidance","Faith","Hope"] },
+  { preacher:"franklin", title:"Right People, Right Place, Right Plan", year:"2007",
+    idea:"Discerning God's direction",
+    desc:"Franklin on hearing God through the people around you and the peace within you — practical discernment for the decisions that set the course of a life.",
+    scripture:"Proverbs 3:5–6", topics:["Prayer & Guidance","Purpose","Identity"] }
+];
+
+const PASSAGES = [
+  { preacher:"graham", ref:"John 3:16",
+    text:"For God so loved the world, that he gave his only begotten Son, that whosoever believeth in him should not perish, but have everlasting life.",
+    why:"The verse Graham preached more than any other — he called it the whole Gospel in one sentence.",
+    topics:["Salvation","Hope","Faith"] },
+  { preacher:"graham", ref:"John 14:6",
+    text:"Jesus saith unto him, I am the way, the truth, and the life: no man cometh unto the Father, but by me.",
+    why:"The backbone of every \u201CWho is Jesus?\u201D crusade message.",
+    topics:["Faith","Salvation"] },
+  { preacher:"graham", ref:"Romans 5:1",
+    text:"Therefore being justified by faith, we have peace with God through our Lord Jesus Christ:",
+    why:"The verse behind the title of his signature book, Peace with God.",
+    topics:["Worry & Peace","Faith","Salvation"] },
+
+  { preacher:"warren", ref:"Ephesians 2:10",
+    text:"For we are his workmanship, created in Christ Jesus unto good works, which God hath before ordained that we should walk in them.",
+    why:"The workmanship verse beneath the five purposes — you were made on purpose, for a purpose.",
+    topics:["Purpose","Identity","Calling & Service"] },
+  { preacher:"warren", ref:"Jeremiah 29:11",
+    text:"For I know the thoughts that I think toward you, saith the LORD, thoughts of peace, and not of evil, to give you an expected end.",
+    why:"A Daily Hope staple: a future already thought through.",
+    topics:["Hope","Purpose"] },
+  { preacher:"warren", ref:"2 Corinthians 1:3–4",
+    text:"Blessed be God, even the Father of our Lord Jesus Christ, the Father of mercies, and the God of all comfort; Who comforteth us in all our tribulation, that we may be able to comfort them which are in any trouble, by the comfort wherewith we ourselves are comforted of God.",
+    why:"The anchor of the Warrens' return-from-grief series: comfort received becomes comfort given.",
+    topics:["Grief & Loss","Suffering","Hope"] },
+  { preacher:"warren", ref:"Philippians 4:6–7",
+    text:"Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God. And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
+    why:"Paul's anti-stress recipe — the spine of Warren's teaching on worry.",
+    topics:["Worry & Peace","Hope"] },
+
+  { preacher:"osteen", ref:"Proverbs 18:21",
+    text:"Death and life are in the power of the tongue: and they that love it shall eat the fruit thereof.",
+    why:"The engine of I Declare and nearly every Osteen message on words.",
+    topics:["Words & Attitude","Faith"] },
+  { preacher:"osteen", ref:"Psalm 139:14",
+    text:"I will praise thee; for I am fearfully and wonderfully made: marvellous are thy works; and that my soul knoweth right well.",
+    why:"The identity verse beneath The Power of I Am.",
+    topics:["Identity","Words & Attitude"] },
+  { preacher:"osteen", ref:"Isaiah 54:17",
+    text:"No weapon that is formed against thee shall prosper; and every tongue that shall rise against thee in judgment thou shalt condemn. This is the heritage of the servants of the LORD, and their righteousness is of me, saith the LORD.",
+    why:"A staple Lakewood declaration over opposition and setbacks.",
+    topics:["Faith","Hope"] },
+
+  { preacher:"jakes", ref:"Luke 13:12",
+    text:"And when Jesus saw her, he called her to him, and said unto her, Woman, thou art loosed from thine infirmity.",
+    why:"Five words that became Jakes's sermon, book, conference, and film — freedom for wounds carried eighteen years.",
+    topics:["Healing & Freedom","Hope","Identity"] },
+  { preacher:"stanley", ref:"Proverbs 3:5–6",
+    text:"Trust in the LORD with all thine heart; and lean not unto thine own understanding. In all thy ways acknowledge him, and he shall direct thy paths.",
+    why:"The trust-and-obey verse at the heart of Stanley's Life Principles.",
+    topics:["Prayer & Guidance","Faith","Worry & Peace"] },
+  { preacher:"keller", ref:"Luke 15:20",
+    text:"And he arose, and came to his father. But when he was yet a great way off, his father saw him, and had compassion, and ran, and fell on his neck, and kissed him.",
+    why:"The running father at the center of The Prodigal God — the only time God is pictured in a hurry.",
+    topics:["Salvation","Hope","Identity"] },
+  { preacher:"sheen", ref:"John 1:14",
+    text:"And the Word was made flesh, and dwelt among us, (and we beheld his glory, the glory as of the only begotten of the Father,) full of grace and truth.",
+    why:"The Incarnation — the hinge on which Sheen's Life of Christ turns.",
+    topics:["Faith","Salvation","Eternity"] },
+  { preacher:"mlk", ref:"Amos 5:24",
+    text:"But let judgment run down as waters, and righteousness as a mighty stream.",
+    why:"The prophet's line King carried from Montgomery to the March on Washington to Memphis.",
+    topics:["Justice & Courage","Calling & Service"] },
+  { preacher:"meyer", ref:"Romans 12:2",
+    text:"And be not conformed to this world: but be ye transformed by the renewing of your mind, that ye may prove what is that good, and acceptable, and perfect, will of God.",
+    why:"The renewing-the-mind verse Battlefield of the Mind is built on.",
+    topics:["Words & Attitude","Worry & Peace","Identity"] },
+  { preacher:"evans", ref:"Matthew 6:33",
+    text:"But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you.",
+    why:"The kingdom-first verse beneath everything Evans calls the kingdom agenda.",
+    topics:["Purpose","Calling & Service","Faith"] },
+  { preacher:"spurgeon", ref:"Isaiah 45:22",
+    text:"Look unto me, and be ye saved, all the ends of the earth: for I am God, and there is none else.",
+    why:"The text a snowbound lay preacher read the morning fifteen-year-old Spurgeon was converted — he never stopped preaching it.",
+    topics:["Salvation","Faith","Hope"] },
+
+  { preacher:"laurie", ref:"Philippians 1:21",
+    text:"For to me to live is Christ, and to die is gain.",
+    why:"Paul's one-line answer to the meaning of life — and the verse at the center of Laurie's best-known crusade message.",
+    topics:["Purpose","Salvation","Hope"] },
+  { preacher:"franklin", ref:"Joel 2:12",
+    text:"Therefore also now, saith the LORD, turn ye even to me with all your heart, and with fasting, and with weeping, and with mourning:",
+    why:"The call to return with fasting that anchors Franklin's ministry and his book of the same theme.",
+    topics:["Prayer & Guidance","Faith","Hope"] }
+];
+
+const HYMNS = [
+  { id:"IN05jVNBs64", title:"Amazing Grace", tone:"h-garnet",
+    performer:"President Obama", occasion:"Eulogy for Rev. Clementa Pinckney · Charleston, 2015", year:"2015",
+    desc:"Mid-eulogy for a pastor killed in his own church, the President paused, then began to sing alone — and five thousand mourners rose to join him. Perhaps the most unforgettable performance of Newton's hymn in our lifetime. (C-SPAN)",
+    topics:["Salvation","Grief & Loss","Hope"] },
+  { id:"0xmMRan_qCM", title:"How Great Thou Art", tone:"h-emerald",
+    performer:"Carrie Underwood & Vince Gill", occasion:"ACM Presents: Girls' Night Out", year:"2011",
+    desc:"The performance fans call her finest: Underwood soaring, Vince Gill stepping in, the room on its feet before the last note. The hymn George Beverly Shea first carried across America on Billy Graham's crusades.",
+    topics:["Worship & Praise","Faith","Eternity"] },
+  { id:"IUZEtVbJT5c", title:"Hallelujah Chorus", tone:"h-amber",
+    performer:"Royal Choral Society", occasion:"Handel's Messiah · Royal Albert Hall", year:"Good Friday",
+    desc:"From Handel's Messiah, performed at the Royal Albert Hall every Good Friday since 1876 — one of the longest-running traditions in music. The chorus an audience has risen to its feet for since the days of King George II.",
+    topics:["Worship & Praise","Eternity","Hope"] },
+  { id:"lOFHVXE6yWs", title:"Jerusalem", tone:"h-lapis",
+    performer:"BBC Symphony Chorus", occasion:"Last Night of the Proms · Royal Albert Hall", year:"2012",
+    desc:"Blake's poem set by Hubert Parry, orchestrated by Elgar, and sung by the whole hall at the close of the Proms — flags waving, the unofficial anthem of England's green and pleasant land.",
+    topics:["Hope","Justice & Courage"] },
+  { id:"eHLy6bu955M", title:"Once in Royal David's City", tone:"h-royal",
+    performer:"Choir of King's College, Cambridge", occasion:"A Festival of Nine Lessons & Carols", year:"Christmas Eve",
+    desc:"Every Christmas Eve a single boy treble opens the service alone, unaccompanied, before the choir and the world join in — broadcast from the King's College chapel since 1928. The sound of Christmas beginning.",
+    topics:["Worship & Praise","Salvation","Hope"] },
+  { id:"G9anfFdAr3E", title:"Battle Hymn of the Republic", tone:"h-steel",
+    performer:"The Tabernacle Choir", occasion:"Live from West Point", year:"2015",
+    desc:"The 360-voice choir with the West Point Band — the thundering arrangement that won a Grammy in 1959 and became the choir's signature. Julia Ward Howe's vision of glory on the march.",
+    topics:["Justice & Courage","Hope","Eternity"] },
+  { id:"bntMFJskos4", title:"Abide With Me", tone:"h-rose",
+    performer:"Emeli Sandé", occasion:"London 2012 Olympic Opening Ceremony", year:"2012",
+    desc:"In Danny Boyle's hush of remembrance, before a stadium and 27 million at home, Sandé sang Lyte's evening hymn for the departed — \u201Cfast falls the eventide.\u201D Written by a dying pastor in 1847, and never more quietly powerful.",
+    topics:["Grief & Loss","Worry & Peace","Eternity"] }
+];
+
+const SITUATIONS = [
+  {label:"Feeling lost",       topics:["Purpose"]},
+  {label:"Grieving",           topics:["Grief & Loss"]},
+  {label:"Anxious",            topics:["Worry & Peace"]},
+  {label:"Worn out",           topics:["Suffering","Worry & Peace"]},
+  {label:"Doubting",           topics:["Doubt","Faith"]},
+  {label:"Starting over",      topics:["Hope","Identity"]},
+  {label:"Need direction",     topics:["Prayer & Guidance","Purpose"]},
+  {label:"Carrying old wounds",topics:["Healing & Freedom","Grief & Loss"]},
+  {label:"Big questions",      topics:["Eternity","Salvation"]}
+];
+
+/* Guided studies, keyed by the "A word for…" situation label. Each plan is a
+   curated series of messages already in the vault, with per-session questions to
+   check understanding, a closing review, a reflection prompt, and a prayer. */
+const LESSON_PLANS = {
+  "Grieving": {
+    title:"Walking Through Grief & Loss", pc:"warren",
+    subtitle:"A five-part journey from raw sorrow toward steady hope.",
+    scripture:"2 Corinthians 1:3–4",
+    intro:"Loss does not move in a straight line, and it cannot be hurried. This guided series sits with five voices who have stood in the valley themselves — and lets them walk with you, one session at a time.",
+    forWhom:"For anyone grieving a death, a diagnosis, a marriage, or a season that isn't coming back — on your own, or with a small group gathered around a table.",
+    sessions:[
+      { id:"gaQ_oTp7tKY", source:"Rick Warren · Saddleback, 2013", title:"How We're Getting Through",
+        read:"2 Corinthians 1:3–11",
+        focus:"the difference between grief that isolates and grief that is carried in community — and the specific truths Rick and Kay say held them up after losing their son.",
+        questions:[
+          "Warren says comfort received becomes comfort given (2 Cor. 1:4). In your own words, how can a loss you've survived become useful to someone else?",
+          "What does Rick admit he and Kay did NOT understand, even as people of deep faith? Why does it matter that he says this out loud?",
+          "Name one practical thing the Warrens did to 'get through' the early days. Is it something you could borrow this week?"
+        ],
+        takeaway:"Grief is not a problem to be solved but a road to be walked — and it is shorter with company." },
+      { id:"2FLOvVJoaZc", source:"Fulton Sheen · Life Is Worth Living, 1950s", title:"Pain and Suffering",
+        read:"Isaiah 53:3–5",
+        focus:"how Sheen distinguishes pain that is merely endured from suffering that is offered up — and what the cross changes about the question 'why?'",
+        questions:[
+          "Sheen argues suffering is not God's failure but part of His answer. What is his reasoning? Do you find it convincing?",
+          "What is the difference Sheen draws between pain and suffering? Can the same event be one or the other depending on the person?",
+          "If the cross reframes suffering, what would change about how you carry your own hardest loss?"
+        ],
+        takeaway:"The cross does not remove the pain — it gives the pain a meaning it could never have had alone." },
+      { id:"m_1fCUlet50", source:"Charles Stanley · In Touch", title:"When We Don't Understand Why",
+        read:"Job 1:20–22; Proverbs 3:5–6",
+        focus:"how Stanley counsels trusting God's character when His reasons stay hidden — without pretending the questions don't hurt.",
+        questions:[
+          "Stanley says we can trust God's heart even when we can't trace His hand. What does that distinction mean for a grief that 'makes no sense'?",
+          "Which of God's character traits does Stanley lean on when the 'why' goes unanswered? Why those?",
+          "Is it possible to be honest about your anger or confusion AND still trust God? What would that look like for you?"
+        ],
+        takeaway:"Faith is not the absence of questions; it is trusting the One who has the answers you don't." },
+      { id:"b_u90j4Lcig", source:"T.D. Jakes · Crushing series", title:"Nothing in Your Life Is Wasted",
+        read:"John 12:24",
+        focus:"Jakes's image of the press — the grape is crushed not to end it but to begin the wine. What he says God does with seasons that flatten you.",
+        questions:[
+          "What is the 'crushing' Jakes describes, and what does he say it produces? Where might a current pressure be doing this in you?",
+          "Jakes insists nothing is wasted. Is that comforting or hard to hear in fresh grief? Be honest about why.",
+          "Can you name one painful season that later 'became wine'? What does that memory do for the loss you carry now?"
+        ],
+        takeaway:"The press is not the end of the grape — it is the beginning of the wine." },
+      { id:"bntMFJskos4", source:"Emeli Sandé · London 2012 (hymn by Henry Lyte, 1847)", title:"Abide With Me",
+        read:"Psalm 23",
+        focus:"the prayer of a dying pastor asking God to stay through the 'eventide.' Let the music do what argument can't.",
+        questions:[
+          "Lyte wrote this as he was dying. Which line speaks most directly to where you are right now, and why?",
+          "The hymn does not ask God to remove the darkness, only to 'abide.' Why might presence matter more than rescue in grief?",
+          "After five sessions, what is one thing you believe about loss now that you didn't fully believe before?"
+        ],
+        takeaway:"We do not grieve toward an answer; we grieve toward a Presence that has promised to stay." }
+    ],
+    review:[
+      "Across these five voices, what was the single most helpful idea for your own grief? Why that one?",
+      "Warren, Sheen, Stanley, and Jakes each handle the question 'why?' differently. Whose approach fits you best, and where do they agree?",
+      "Has anything in this series changed how you would comfort a grieving friend? What would you do or say differently?",
+      "Name one Scripture from these sessions you want to keep close. What does it promise?",
+      "Where do you still feel stuck? Who could you share that with this week?"
+    ],
+    reflect:"Write a short letter to the person or thing you've lost — say what you didn't get to say. Then write one sentence about a hope you're choosing to hold onto.",
+    prayer:"Father of mercies and God of all comfort, You have not promised me a life without loss, but You have promised never to leave. Sit with me in the eventide. Turn my crushing into something that can one day comfort another. Until I understand, help me trust Your heart. Amen."
+  },
+
+  "Carrying old wounds": {
+    title:"Healing Old Wounds", pc:"jakes",
+    subtitle:"A four-part path from carried pain toward freedom.",
+    scripture:"Luke 13:12",
+    intro:"Some wounds are old enough to feel like identity. This series is for the hurt you've stopped expecting to heal — and the voices who insist that nothing about you is beyond mending.",
+    forWhom:"For anyone carrying a long-held hurt — a betrayal, an abuse, a regret, a name someone called you that you started to believe.",
+    sessions:[
+      { id:"b_u90j4Lcig", source:"T.D. Jakes · Crushing series", title:"Nothing in Your Life Is Wasted",
+        read:"Romans 8:28",
+        focus:"Jakes on what God does with the seasons that flattened you — and why even the wound can be put to use.",
+        questions:[
+          "Jakes says the crushing produces something. What is it, and can you imagine it in your own story?",
+          "What is the difference between a wound that defines you and one that has shaped you? Where are you on that line?",
+          "What would it take for you to believe your hardest experience is 'not wasted'?"
+        ],
+        takeaway:"What hurt you is not the last word on what you'll become." },
+      { id:"DbqimWcJnAI", source:"Joyce Meyer · Battlefield of the Mind", title:"Battlefield of the Mind",
+        read:"Romans 12:2; 2 Corinthians 10:5",
+        focus:"Meyer's candor about her own 'stinking thinking' and how Scripture rebuilt it one thought at a time.",
+        questions:[
+          "Meyer says the mind is renewed the same way it was wrecked. How? What's the daily practice?",
+          "What old lie about yourself do you still half-believe? Where did it come from?",
+          "What true statement could you rehearse against that lie this week?"
+        ],
+        takeaway:"You are not obligated to believe everything you think." },
+      { id:"gJxHV8Cq7qM", source:"Jentezen Franklin · Free Chapel, 2021", title:"Just Add Water",
+        read:"2 Kings 5:1–14",
+        focus:"Naaman's healing waited on the far side of an instruction that made no sense. Franklin on the obedience that unlocks what striving never could.",
+        questions:[
+          "Naaman almost missed his healing over wounded pride. Where might pride be standing between you and freedom?",
+          "What 'simple instruction' (forgiveness, confession, asking for help) have you resisted because it felt too small?",
+          "What is one act of obedience you could 'dip' into this week, even without understanding it fully?"
+        ],
+        takeaway:"The miracle is often waiting on the other side of the thing you don't want to do." },
+      { id:"A6224mKoiww", source:"T.D. Jakes · The Potter's House", title:"Nothing Just Happens",
+        read:"Ruth 1–4 (overview)",
+        focus:"famine, loss, and a 'chance' meeting in a barley field that was never chance at all — God's hand in the detours of a wounded life.",
+        questions:[
+          "Jakes argues nothing just happens. How does that reframe a painful chapter you've written off as random?",
+          "Naomi changed her name to 'Bitter' (Ruth 1:20). What have you let your wound rename in you?",
+          "After four sessions, what is one wound you're ready to start handing over — and to whom?"
+        ],
+        takeaway:"Woman, thou art loosed — the wound you've carried for years does not get to keep you." }
+    ],
+    review:[
+      "Which session named your wound most precisely? What did it say?",
+      "Jakes, Meyer, and Franklin agree the past need not stay in charge. Summarize how, in one sentence.",
+      "What lie has this series helped you answer? What do you answer it with now?",
+      "Is there forgiveness — of someone else, or yourself — that this study is nudging you toward?"
+    ],
+    reflect:"Name the wound on paper, as plainly as you can. Underneath it, write the truer name God gives you (loved, chosen, free). Keep the page.",
+    prayer:"Lord, You called the bent-over woman to stand straight after eighteen years. I bring You a hurt I've carried even longer. Loose me from it. Renew my mind where the lie still lives, and give me courage for the obedience that heals. Amen."
+  },
+
+  "Anxious": {
+    title:"Peace Over Anxiety", pc:"osteen",
+    subtitle:"A four-part study for the racing mind.",
+    scripture:"Philippians 4:6–7",
+    intro:"Worry is loud, persistent, and convincing. This series gathers four voices on how Scripture quiets it — not by pretending life is calm, but by retraining where the mind rests.",
+    forWhom:"For the anxious, the overstretched, and anyone whose thoughts won't stop racing at 2 a.m.",
+    sessions:[
+      { id:"S82EJ14zlMc", source:"Rick Warren · Habits of Happiness", title:"How to Keep From Stressing Out",
+        read:"Philippians 4:6–7",
+        focus:"Paul's three-part anti-stress recipe — worry about nothing, pray about everything, give thanks in anything.",
+        questions:[
+          "Warren breaks Philippians 4:6–7 into three moves. Name them. Which is hardest for you?",
+          "What does Warren say replaces worry when you hand it over? What is the role of gratitude?",
+          "What is one specific worry you could 'pray about' this week instead of rehearse?"
+        ],
+        takeaway:"Worry is a down payment on a problem you may never have." },
+      { id:"gRmi3cQ2hBw", source:"Joel Osteen · Lakewood", title:"Empty Out the Negative",
+        read:"Psalm 103:1–5",
+        focus:"Osteen's picture of the heart as a container — worry and bitterness occupy the space meant for peace.",
+        questions:[
+          "Osteen says you must empty out before you can fill up. What occupies your 'container' most days?",
+          "What practical step does he suggest for releasing a resentment or fear?",
+          "If peace needs room, what is one thing you could set down today?"
+        ],
+        takeaway:"You can't pour peace into a heart that's already full of worry — empty it out first." },
+      { id:"DbqimWcJnAI", source:"Joyce Meyer · Battlefield of the Mind", title:"Battlefield of the Mind",
+        read:"Romans 12:2; 2 Corinthians 10:5",
+        focus:"Meyer's case that the war is won or lost between your ears — and how she rebuilt her thinking one thought at a time.",
+        questions:[
+          "Meyer says to 'take a thought captive.' Give an example from your own week.",
+          "Which recurring anxious thought runs on a loop for you? When does it usually start?",
+          "What true statement could you rehearse against that thought the next time it comes?"
+        ],
+        takeaway:"The mind is renewed the same way it was wrecked — one repeated thought at a time." },
+      { id:"yfIBIWHM6O8", source:"Charles Stanley · In Touch", title:"Listening to God",
+        read:"Psalm 46:10; 1 Kings 19:11–13",
+        focus:"Stanley on stillness — that hearing God, and finding peace, is mostly a matter of making quiet room.",
+        questions:[
+          "Stanley links peace to listening. Why is stillness so hard, and what does he recommend?",
+          "How does Stanley say you can tell God's quiet voice from your own anxiety?",
+          "What would ten quiet minutes a day look like for you? When this week?"
+        ],
+        takeaway:"Peace is found less in getting answers than in getting quiet before the One who has them." }
+    ],
+    review:[
+      "Warren, Osteen, Meyer, and Stanley attack anxiety from four angles — prayer, releasing, thinking, stillness. Which fits you best?",
+      "According to these messages, what does peace actually depend on? (Hint: not circumstances.)",
+      "Name one anxious thought you've learned to answer this series. What do you answer it with?",
+      "Write a 'peace plan': one verse, one practice, one person to talk to."
+    ],
+    reflect:"Make two lists — 'what I can control' and 'what I can't.' Pray over the second list, then physically set it down somewhere.",
+    prayer:"Lord, I bring You the worries I keep picking back up. Empty out what's crowding my heart and fill the space with Your peace that passes understanding. Quiet me enough to hear You. Amen."
+  },
+
+  "Worn out": {
+    title:"For the Weary", pc:"laurie",
+    subtitle:"A four-part rest for the exhausted.",
+    scripture:"Matthew 11:28",
+    intro:"Some seasons don't break your faith; they just wear it thin. This series is for the bone-tired — the ones still showing up but running on empty — and the voices who say the hard stretch is taking you somewhere.",
+    forWhom:"For the burned out, the caregiver, the long-hauler — anyone who is more tired than they are sad.",
+    sessions:[
+      { id:"rG_syY4T0FE", source:"Joel Osteen · Comerica Park, Detroit, 2016", title:"Trouble Is Transportation",
+        read:"Psalm 89:21; Romans 8:28",
+        focus:"Osteen's argument that difficulty is not a dead end but a vehicle — closed doors and setbacks moving you toward what's next.",
+        questions:[
+          "Osteen reframes trouble as 'transportation.' Where is your current hard season possibly carrying you?",
+          "What is the difference between a setback that ends you and one that moves you? What decides which it is?",
+          "What closed door, looking back, turned out to be God's redirection?"
+        ],
+        takeaway:"The thing wearing you down may be the very thing moving you forward." },
+      { id:"FzJtF57MTDI", source:"Greg Laurie · Harvest, 2025", title:"Overcoming or Overcome",
+        read:"1 John 5:4; John 16:33",
+        focus:"the choice every weary believer faces — to be overcome by the circumstance, or to overcome it by faith.",
+        questions:[
+          "Laurie says you will either overcome or be overcome — there's no neutral. Which is winning in you right now?",
+          "What does it look like, practically, to 'overcome by faith' when you're too tired to feel faithful?",
+          "Where do you need to stop white-knuckling and start trusting this week?"
+        ],
+        takeaway:"Endurance is not gritting your teeth — it's leaning your weight on Someone stronger." },
+      { id:"yfIBIWHM6O8", source:"Charles Stanley · In Touch", title:"Listening to God",
+        read:"Psalm 23; Mark 6:31",
+        focus:"Stanley on the rest that comes from stillness — making quiet room when the noise has drained you.",
+        questions:[
+          "Stanley says God restores in stillness, not striving. When did you last let yourself be truly still?",
+          "Even Jesus withdrew to rest (Mark 6:31). What does it tell you that rest was His pattern, not His failure?",
+          "What is one thing you could STOP doing this week to make room to be restored?"
+        ],
+        takeaway:"You are not a machine; you are a sheep, and the Shepherd makes you lie down." },
+      { id:"b_u90j4Lcig", source:"T.D. Jakes · Crushing series", title:"Nothing in Your Life Is Wasted",
+        read:"Isaiah 40:28–31",
+        focus:"Jakes on the long press — and the promise that those who wait on the Lord renew their strength.",
+        questions:[
+          "Isaiah 40:31 promises renewed strength to those who 'wait.' How is waiting different from quitting?",
+          "Jakes says the pressure produces something. What might your weary season be producing?",
+          "After four sessions, where will you go to get your strength renewed — and how often?"
+        ],
+        takeaway:"They that wait upon the LORD shall renew their strength — exhaustion is not the end of the verse." }
+    ],
+    review:[
+      "Which session gave you the most rest? What did it say that you needed to hear?",
+      "Osteen, Laurie, Stanley, and Jakes all reframe the weary season. Summarize their shared hope in one sentence.",
+      "What is the difference between godly rest and just giving up? How can you tell which you need?",
+      "Write down one rhythm of rest you'll actually keep this month."
+    ],
+    reflect:"List everything you're currently carrying. Circle what is truly yours to carry, and cross out what you've been carrying that belongs to God or someone else.",
+    prayer:"Lord, I am worn thin. You said the weary could come to You and find rest. I come — not with answers, just tired. Renew my strength like the eagle's, and teach me to wait on You without letting go. Amen."
+  },
+
+  "Feeling lost": {
+    title:"Finding Your Purpose", pc:"warren",
+    subtitle:"A four-part search for what you're here to do.",
+    scripture:"Ephesians 2:10",
+    intro:"'Is this all there is?' is one of the oldest human questions. This series gathers four voices who answer it the same surprising way — by pointing you away from yourself.",
+    forWhom:"For anyone at a crossroads — a graduation, a layoff, an empty nest — or just the quiet sense that life should add up to more.",
+    sessions:[
+      { id:"GmHvYZ608oc", source:"Rick Warren · Saddleback", title:"What on Earth Am I Here For?",
+        read:"Ephesians 2:10",
+        focus:"the five purposes Warren says every life is built around — worship, fellowship, growth, service, mission — and his opening claim: 'It's not about you.'",
+        questions:[
+          "Warren opens by pointing you away from yourself. Why does he say purpose can't be found by looking inward?",
+          "Of the five purposes, which is strongest in your life right now? Which is weakest?",
+          "What is one small step toward the purpose you've been neglecting?"
+        ],
+        takeaway:"You were made by God and for God — and until you grasp that, life won't make sense." },
+      { id:"OU69so6VjHA", source:"Tim Keller · Redeemer, NYC", title:"A Reason for Living",
+        read:"Ecclesiastes 1:1–11",
+        focus:"how Keller takes meaninglessness more seriously than the skeptic does, then follows it honestly to where meaning can actually hold.",
+        questions:[
+          "Keller says we should face life's apparent meaninglessness honestly. What does he gain by not dodging it?",
+          "Where, Keller argues, can meaning finally rest its weight? Do you agree?",
+          "What have you been hoping would give your life meaning? What happens to you if it's taken away?"
+        ],
+        takeaway:"A meaning big enough to live for must be one that suffering and death cannot erase." },
+      { id:"rGFkj0Vmdz4", source:"Tony Evans · Oak Cliff, Detours series", title:"The Detours of Provision",
+        read:"Genesis 39–41 (overview)",
+        focus:"Evans on Joseph — God rarely moves in a straight line, and the detour is doing the preparing.",
+        questions:[
+          "What does Evans say God is accomplishing during the 'detour' years? Can you see it in Joseph's story?",
+          "How does Evans distinguish a delay from a denial? Why does that distinction matter to your purpose?",
+          "What current 'detour' might actually be preparation? Preparation for what?"
+        ],
+        takeaway:"The detour is not a deviation from the plan — it is the plan." },
+      { id:"6GNOICK7Wrk", source:"Greg Laurie · Harvest, 2025", title:"The Meaning of Life",
+        read:"Philippians 1:21",
+        focus:"Laurie's case that meaning isn't found by chasing happiness but as the byproduct of putting Christ first.",
+        questions:[
+          "Laurie says chasing happiness directly tends to lose it. Why? Where have you seen this?",
+          "What does 'to live is Christ' (Phil. 1:21) mean as a definition of purpose?",
+          "After four sessions, finish this sentence: 'I believe I am here to ___.'"
+        ],
+        takeaway:"Purpose is not a thing you find but a Person you follow — meaning comes along behind." }
+    ],
+    review:[
+      "Warren, Keller, Evans, and Laurie all reject self-focused purpose. Summarize their shared answer in one sentence.",
+      "Which session reframed your sense of purpose the most? Why?",
+      "What 'detour' or disappointment looks different to you now?",
+      "Write your one-sentence purpose statement. What's one habit that would line up with it?"
+    ],
+    reflect:"List three things you're good at and three things that break your heart. Where they overlap is often where calling lives — write down what you notice.",
+    prayer:"Lord, I am Your workmanship, made on purpose and for a purpose. Quiet my chasing. Show me the works You prepared for me, and give me courage to walk in them — even down the detours. Amen."
+  },
+
+  "Starting over": {
+    title:"A Fresh Start", pc:"osteen",
+    subtitle:"A four-part study for new beginnings.",
+    scripture:"2 Corinthians 5:17",
+    intro:"Whether you chose this new chapter or it was forced on you, beginning again takes courage. This series is for anyone standing at a fresh page, unsure whether the past gets a vote.",
+    forWhom:"For the newly single, sober, relocated, or rebuilt — anyone whose old life ended and whose new one hasn't quite started.",
+    sessions:[
+      { id:"4OWHSna_gbw", source:"Joel Osteen · Lakewood, 2025", title:"Getting Unstuck",
+        read:"Isaiah 43:18–19",
+        focus:"Osteen on breaking out of stalled seasons — past mistakes did not cancel the assignment.",
+        questions:[
+          "Osteen says past mistakes don't cancel your assignment. What regret have you let cancel yours?",
+          "Isaiah 43:19 says God does a 'new thing.' What old thing are you still rehearsing that you need to release?",
+          "What is one concrete step toward 'unstuck' you could take this week?"
+        ],
+        takeaway:"Where you've been does not get the final say over where you're going." },
+      { id:"AwtIATPEZvQ", source:"Joel Osteen · Super Soul Sunday", title:"The Power of I Am",
+        read:"Psalm 139:14",
+        focus:"why Osteen says whatever follows the words 'I am' tends to come looking for you — and how to speak identity instead of defeat.",
+        questions:[
+          "What words have you been putting after 'I am' lately? Where did they come from?",
+          "Osteen says identity drives direction. How might changing your self-talk change your fresh start?",
+          "Write three true 'I am' statements God would say over you."
+        ],
+        takeaway:"You will move toward whatever you keep calling yourself — so choose the truest name." },
+      { id:"rc7FNWVTC3E", source:"Jentezen Franklin · Free Chapel, 2023", title:"Speak Life In Low Places",
+        read:"Ezekiel 37:1–10",
+        focus:"Franklin on speaking life into a valley — when everything around you says defeat, your own mouth can call life into the lowest places.",
+        questions:[
+          "Ezekiel prophesied to dry bones. What 'dead' area of your life needs a word of life spoken over it?",
+          "Franklin says we often agree with the valley. Where have you been speaking defeat over your new start?",
+          "What is one hopeful thing you can begin saying out loud this week?"
+        ],
+        takeaway:"In the low place, your own words can be the first sound of life returning." },
+      { id:"b_u90j4Lcig", source:"T.D. Jakes · Crushing series", title:"Nothing in Your Life Is Wasted",
+        read:"Joel 2:25",
+        focus:"Jakes's promise that even the wasted years become material — the press becomes the wine.",
+        questions:[
+          "Joel 2:25 promises restored years. What do you most want God to restore as you begin again?",
+          "How can the very thing that ended your old chapter become useful in your new one?",
+          "After four sessions, what name are you giving this new chapter? Why?"
+        ],
+        takeaway:"A fresh start is not erasing the past — it's letting God repurpose it." }
+    ],
+    review:[
+      "Which session gave you the most courage to begin again? What did it say?",
+      "Osteen, Franklin, and Jakes all say the past doesn't get the last word. Summarize how, in one sentence.",
+      "What 'I am' statement are you retiring? What are you replacing it with?",
+      "Name one thing from your old chapter that God might actually use in the new one."
+    ],
+    reflect:"Write the last line of your old chapter and the first line of your new one. Keep them side by side where you'll see them.",
+    prayer:"Lord, You make all things new, and that includes me. I let go of the chapter that's ended. Speak life over my dry places, give me a truer name than my failures, and walk me into the new thing You're doing. Amen."
+  },
+
+  "Need direction": {
+    title:"Finding Direction", pc:"stanley",
+    subtitle:"A four-part study on hearing God when you have a decision to make.",
+    scripture:"Proverbs 3:5–6",
+    intro:"At every fork in the road comes the same question: how do I know which way God wants me to go? This series gathers four voices on listening, obeying, and trusting the guidance you've been given.",
+    forWhom:"For anyone facing a real decision — a move, a job, a relationship, a calling — and wanting to choose it with God rather than alone.",
+    sessions:[
+      { id:"yfIBIWHM6O8", source:"Charles Stanley · In Touch", title:"Listening to God",
+        read:"Proverbs 3:5–6; 1 Kings 19:11–13",
+        focus:"Stanley's calm case that God still speaks — and that hearing Him is mostly a matter of making room: stillness, Scripture, obedience.",
+        questions:[
+          "Stanley names several ways God speaks. Which has He used in your life before?",
+          "Why does Stanley say obedience to the last thing you heard is the key to hearing the next?",
+          "What is one decision you've been making in noise instead of in stillness?"
+        ],
+        takeaway:"Guidance usually comes not to the busiest ear, but to the quietest one." },
+      { id:"rGFkj0Vmdz4", source:"Tony Evans · Oak Cliff, Detours series", title:"The Detours of Provision",
+        read:"Genesis 39–41; Psalm 37:23",
+        focus:"Evans on why the path to the destiny rarely runs straight — and how to trust direction that doesn't make sense yet.",
+        questions:[
+          "Evans says God's leading often looks like a detour. Where has your path not gone the way you planned?",
+          "How can you tell the difference between God redirecting you and you simply getting lost?",
+          "What 'detour' are you currently tempted to abandon that might be the very road God is using?"
+        ],
+        takeaway:"God's guidance is often a winding road, not a straight line — and the bends are not mistakes." },
+      { id:"gJxHV8Cq7qM", source:"Jentezen Franklin · Free Chapel, 2021", title:"Just Add Water",
+        read:"2 Kings 5:1–14",
+        focus:"Naaman's breakthrough waited on the far side of an instruction that made no sense. Franklin on the obedience that unlocks direction.",
+        questions:[
+          "Naaman wanted a grand strategy and got a simple instruction. Where are you over-complicating a decision God has already made simple?",
+          "What is the smallest next step of obedience you already know to take? What's stopping you?",
+          "How does doing the last clear thing God said often clarify the next unclear thing?"
+        ],
+        takeaway:"You don't need the whole map — just enough light for the next step, and the will to take it." },
+      { id:"GmHvYZ608oc", source:"Rick Warren · Saddleback", title:"What on Earth Am I Here For?",
+        read:"Ephesians 2:10; Romans 12:1–2",
+        focus:"Warren on aligning a decision with the larger purpose you were made for, so direction flows from identity.",
+        questions:[
+          "Warren says purpose clarifies decisions. How would knowing your 'why' make this choice clearer?",
+          "Which of the five purposes is most at stake in the decision you're facing?",
+          "After four sessions, what is your next step — and what's your deadline to take it?"
+        ],
+        takeaway:"It's easier to know which way to go once you know what you're for." }
+    ],
+    review:[
+      "Which session most changed how you're approaching your decision? How?",
+      "Stanley, Evans, Franklin, and Warren each give a tool for guidance — stillness, trust, obedience, purpose. Which do you most need right now?",
+      "What is the last clear thing God said that you haven't yet obeyed?",
+      "Write down your decision, your next step, and the date you'll take it."
+    ],
+    reflect:"Write your decision at the top of a page. Below it, list what you sense God may be saying through Scripture, through wise people, and through your own peace. Look for where they agree.",
+    prayer:"Lord, I don't need the whole map today — just the next step, and the courage to take it. Make me still enough to hear, humble enough to obey, and trusting enough to follow even the detours. Direct my paths. Amen."
+  },
+
+  "Doubting": {
+    title:"Faith When You're Doubting", pc:"keller",
+    subtitle:"A four-part study that treats doubt as a doorway, not a dead end.",
+    scripture:"Mark 9:24",
+    intro:"Doubt is not the opposite of faith; it's often the place faith grows up. This series gathers four voices who take hard questions seriously — and answer them with respect rather than alarm.",
+    forWhom:"For the questioner, the deconstructing, the once-sure — anyone whose faith feels more like a wrestling match than a settled fact.",
+    sessions:[
+      { id:"U89zkUZPd5w", source:"Billy Graham · Chicago, 1971", title:"Who Is Jesus?",
+        read:"Luke 11:29–32; John 14:6",
+        focus:"Graham pressing the central question — Christ's claims, authority, and cross — toward a personal verdict.",
+        questions:[
+          "Graham says you must reach a verdict about Jesus. Why does he think neutrality isn't really possible?",
+          "What claims about Jesus does Graham point to? Which is most compelling to you, and which raises questions?",
+          "Where are you in your own verdict right now — and what's the honest reason?"
+        ],
+        takeaway:"The question is not whether Jesus is interesting, but whether He is who He said He was." },
+      { id:"OU69so6VjHA", source:"Tim Keller · Redeemer, NYC", title:"A Reason for Living",
+        read:"John 20:24–29",
+        focus:"Keller's respectful, philosophical mode — taking doubt seriously rather than scolding it.",
+        questions:[
+          "Keller says doubts, examined honestly, can strengthen faith. How does that work?",
+          "Keller argues skepticism rests on its own unprovable beliefs. What does he mean?",
+          "Name your biggest doubt plainly. What would it take for you to take the opposite seriously?"
+        ],
+        takeaway:"A faith that has wrestled with its doubts is sturdier than one that never asked." },
+      { id:"m_1fCUlet50", source:"Charles Stanley · In Touch", title:"When We Don't Understand Why",
+        read:"Habakkuk 1:2–4; 3:17–19",
+        focus:"trusting God's character when His reasons — and sometimes His very presence — feel hidden.",
+        questions:[
+          "Stanley separates trusting God's heart from understanding His plan. How does that help when faith feels dry?",
+          "What does Stanley say to do with unanswered 'why' questions? Is that satisfying to you?",
+          "What unanswered question is most testing your faith? Can you hold it and still take one step forward?"
+        ],
+        takeaway:"You can trust a Person you don't fully understand if you're sure of His character." },
+      { id:"90mj79GqWhc", source:"Billy Graham · TED, 1998", title:"Technology, Faith & Human Shortcomings",
+        read:"Romans 7:18–25",
+        focus:"a 79-year-old Graham before Silicon Valley, naming the three things no invention can fix: evil, suffering, death.",
+        questions:[
+          "Graham grants technology enormous power, then names its limits. What three problems does he say it can't solve?",
+          "Why does Graham think these point beyond ourselves? Do you agree there's a gap progress can't close?",
+          "After four sessions, has your 'verdict' shifted — even slightly? In which direction, and why?"
+        ],
+        takeaway:"The deepest human problems are not technical, so they cannot have a technical solution." }
+    ],
+    review:[
+      "These four sessions treat doubt as a doorway, not a dead end. Summarize how.",
+      "Graham and Keller make very different cases for faith. Which reaches you, and where do they overlap?",
+      "Which doubt feels smaller after this series? Which is still big — and is that okay?",
+      "Write one honest sentence to God about where your faith actually is right now."
+    ],
+    reflect:"Write down your single hardest question about God. Don't answer it — just commit to keep asking it honestly, with someone, rather than letting it sit in silence.",
+    prayer:"Lord, I believe; help my unbelief. I bring You my real questions, not the tidy ones. Meet me in the doubt, and give me just enough light for the next step. Amen."
+  },
+
+  "Big questions": {
+    title:"The Heart of the Gospel", pc:"graham",
+    subtitle:"A four-part study of the oldest, biggest questions — and the one answer.",
+    scripture:"John 3:16",
+    intro:"Who is God? Why the cross? What happens when we die? This series lets four landmark preachers walk you through the questions underneath all the others — and the message they each kept returning to.",
+    forWhom:"For the seeker, the returning, and the lifelong believer who wants to hear the old story new — and for anyone preparing to share it.",
+    sessions:[
+      { id:"tN9GibDDI2U", source:"Billy Graham · Central Park, 1991", title:"John 3:16",
+        read:"John 3:16–17",
+        focus:"Graham building a whole message on the one verse he called 'the Gospel in a single sentence.'",
+        questions:[
+          "Graham unpacks John 3:16 phrase by phrase. Which word does he say carries the most weight, and why?",
+          "'Whosoever' — why does Graham emphasize the breadth of that word?",
+          "If this verse is the whole Gospel, what is it actually asking you to do?"
+        ],
+        takeaway:"The Gospel is not complicated; it is just costly — to God." },
+      { id:"T7hHNmm1OBQ", source:"Fulton Sheen · Life Is Worth Living, 1950s", title:"Good Friday",
+        read:"Isaiah 53; Luke 23:33–46",
+        focus:"Sheen walking millions through the meaning of the cross with wit and a chalkboard.",
+        questions:[
+          "Sheen says the cross is the center of history. What reasons does he give?",
+          "How does Sheen explain why the death of Jesus is 'good' news and not only a tragedy?",
+          "What does the cross say about how God sees you? How does that land?"
+        ],
+        takeaway:"At the cross, justice and mercy meet — and neither is cheated." },
+      { id:"y4eoW0JmZag", source:"Billy Graham · final message, 2013", title:"The Cross",
+        read:"1 Corinthians 1:18; Galatians 6:14",
+        focus:"a 95-year-old Graham's distilled last word to the nation, woven with two real stories of change.",
+        questions:[
+          "Billed as his last message, what does Graham choose to say when he has only one thing left to say?",
+          "The stories of Lecrae and Lacey Sturm illustrate what point about the cross?",
+          "What would it mean for the cross to be the center of your life, not just your beliefs?"
+        ],
+        takeaway:"When a man has one message left, he preaches the cross — because there is nothing greater to say." },
+      { id:"1aZoqIwHsdM", source:"Billy Graham · Yankee Stadium, 1957", title:"The Yankee Stadium Crusade",
+        read:"Romans 10:9–13",
+        focus:"vintage Graham at full force — sin, grace, and the invitation — before a record crowd.",
+        questions:[
+          "Graham always ends with an invitation. What exactly is he inviting people to do, step by step?",
+          "Why does Graham insist a response must be personal, not just intellectual agreement?",
+          "After four sessions, how would you put the Gospel to a friend in 30 seconds?"
+        ],
+        takeaway:"The Gospel is news to be received, not merely a truth to be admired." }
+    ],
+    review:[
+      "In one sentence, what is 'the Gospel' according to these four messages?",
+      "Graham and Sheen come from different traditions but preach one cross. Where do they fully agree?",
+      "What does the cross reveal about both the seriousness of sin and the depth of God's love?",
+      "If someone asked you today why Jesus died, what would you say?"
+    ],
+    reflect:"Read John 3:16 slowly, replacing 'the world' and 'whosoever' with your own name. Write down what changes when you do.",
+    prayer:"Lord Jesus, thank You that the Gospel is wide enough to include 'whosoever' — and that means me. Thank You for the cross, where mercy and justice met. Help me not merely admire it but receive it. Amen."
+  }
+};
+
+/* ============ STATE ============ */
+let state = { tab:"sermons", q:"", preacher:"all", topics:new Set(), situation:null };
+
+const ALL_TOPICS = [...new Set([...SERMONS,...BOOKS,...PASSAGES,...HYMNS].flatMap(x=>x.topics))].sort();
+const COLLECTIONS = { sermons:SERMONS, books:BOOKS, passages:PASSAGES, hymns:HYMNS };
+const HINTS = { sermons:"Tap a poster to play", books:"Editorial summaries", passages:"King James Version", hymns:"Tap a poster to play" };
+const TOPIC_ICONS = {
+  "Calling & Service":"i-hands",
+  "Doubt":"i-help",
+  "Eternity":"i-crown",
+  "Faith":"i-shield",
+  "Grief & Loss":"i-comfort",
+  "Healing & Freedom":"i-chain-break",
+  "Hope":"i-anchor",
+  "Identity":"i-sprout",
+  "Justice & Courage":"i-scale",
+  "Prayer & Guidance":"i-compass",
+  "Purpose":"i-steps",
+  "Salvation":"i-cross",
+  "Suffering":"i-comfort",
+  "Words & Attitude":"i-lamp",
+  "Worry & Peace":"i-dove",
+  "Worship & Praise":"i-rays"
+};
+const SITUATION_ICONS = {
+  "Feeling lost":"i-compass",
+  "Grieving":"i-comfort",
+  "Anxious":"i-dove",
+  "Worn out":"i-anchor",
+  "Doubting":"i-help",
+  "Starting over":"i-sprout",
+  "Need direction":"i-compass",
+  "Carrying old wounds":"i-chain-break",
+  "Big questions":"i-crown"
+};
+const PREACHER_ICON = "i-flame";
+
+function iconSvg(id, extraClass=""){
+  return `<svg class="ic${extraClass ? " "+extraClass : ""}" aria-hidden="true"><use href="#${id}"/></svg>`;
+}
+function iconForTopic(topic){
+  return TOPIC_ICONS[topic] || "i-rays";
+}
+
+/* ============ CONTROLS ============ */
+function buildTabs(){
+  document.querySelectorAll(".tab").forEach(t=>{
+    t.setAttribute("aria-pressed", t.dataset.tab===state.tab);
+    t.onclick=()=>{ state.tab=t.dataset.tab; render(); window.scrollTo({top:0}); };
+  });
+}
+function buildPreacherRow(){
+  const row=document.getElementById("preacherRow"); row.innerHTML="";
+  const mk=(key,label,colorKey)=>{
+    const b=document.createElement("button");
+    b.type="button"; b.className="pill";
+    if(colorKey) b.style.setProperty("--pc",`var(--${colorKey})`);
+    b.innerHTML=iconSvg(colorKey ? PREACHER_ICON : "i-rays")+label;
+    b.setAttribute("aria-pressed", state.preacher===key);
+    b.onclick=()=>{ state.preacher=(state.preacher===key)?"all":key; render(); };
+    row.appendChild(b);
+  };
+  mk("all","All voices",null);
+  for(const [k,p] of Object.entries(PREACHERS)) mk(k,p.name,k);
+}
+function buildSituationRail(){
+  const rail=document.getElementById("situationRail"); rail.innerHTML="";
+  SITUATIONS.forEach(s=>{
+    const b=document.createElement("button");
+    b.type="button"; b.className="chip";
+    b.innerHTML=iconSvg(SITUATION_ICONS[s.label] || iconForTopic(s.topics[0]))+s.label;
+    b.setAttribute("aria-pressed", state.situation===s.label);
+    b.onclick=()=>{
+      if(state.situation===s.label){ state.situation=null; state.topics.clear(); }
+      else { state.situation=s.label; state.topics=new Set(s.topics); }
+      render();
+    };
+    rail.appendChild(b);
+  });
+}
+function buildTopicRow(){
+  const row=document.getElementById("topicRow"); row.innerHTML="";
+  ALL_TOPICS.forEach(t=>{
+    const b=document.createElement("button");
+    b.type="button"; b.className="pill";
+    b.innerHTML=iconSvg(iconForTopic(t))+t;
+    b.setAttribute("aria-pressed", state.topics.has(t));
+    b.onclick=()=>{
+      state.situation=null;
+      state.topics.has(t) ? state.topics.delete(t) : state.topics.add(t);
+      render();
+    };
+    row.appendChild(b);
+  });
+}
+
+/* ============ FILTERING ============ */
+function hayOf(item){
+  const p = item.preacher ? PREACHERS[item.preacher].name : "";
+  return [item.title,item.ref,item.text,item.desc,item.why,item.idea,item.venue,item.year,item.scripture,
+          item.performer,item.occasion,p,(item.topics||[]).join(" ")]
+    .filter(Boolean).join(" ").toLowerCase();
+}
+function matches(item){
+  if(state.preacher!=="all" && item.preacher!==state.preacher) return false;
+  if(state.topics.size && ![...state.topics].some(t=>item.topics.includes(t))) return false;
+  if(state.q && !hayOf(item).includes(state.q)) return false;
+  return true;
+}
+
+/* ============ CARD TEMPLATES ============ */
+const tagBtns = t => t.map(x=>`<button class="tag" type="button" data-topic="${x}">${iconSvg(iconForTopic(x))}${x}</button>`).join("");
+
+function sermonCard(s){
+  const p=PREACHERS[s.preacher];
+  return `
+  <article class="card" style="--pc:var(--${s.preacher})">
+    <button class="player" type="button" data-id="${s.id}"${s.embedSrc?` data-embed="${s.embedSrc}"`:""} aria-label="Play: ${s.title}">
+      <img src="https://i.ytimg.com/vi/${s.id}/hqdefault.jpg" alt="Video poster: ${s.title} — ${p.name}" loading="lazy" data-vid="${s.id}" onerror="posterError(this)">
+      <span class="play"><span class="play-ring">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#e9c87a" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+      </span></span>
+    </button>
+    <div class="card-body">
+      <div class="meta">
+        <span class="badge">${p.name}</span>
+        <span>${iconSvg("i-flame")}${s.year}</span><span>·</span><span>${s.venue}</span>
+      </div>
+      <h2>${s.title}</h2>
+      <p class="desc">${s.desc}</p>
+      ${s.scripture?`<p class="scripture"><svg class="ic" style="width:13px;height:13px" aria-hidden="true"><use href="#i-book"/></svg> ${s.scripture}</p>`:""}
+      <div class="tags">${tagBtns(s.topics)}</div>
+      <a class="yt-link" href="https://www.youtube.com/watch?v=${s.id}" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+    </div>
+  </article>`;
+}
+
+function bookCard(b){
+  const p=PREACHERS[b.preacher];
+  return `
+  <article class="card book" style="--pc:var(--${b.preacher})">
+    <span class="ribbon" aria-hidden="true"></span>
+    <div class="card-body">
+      <div class="meta">
+        <span class="badge">${p.name}</span>
+        <span>${iconSvg("i-book")}${b.year}</span>
+      </div>
+      <h2>${b.title}</h2>
+      <div class="bigidea">${b.idea}</div>
+      <p class="desc">${b.desc}</p>
+      <p class="scripture"><svg class="ic" style="width:13px;height:13px" aria-hidden="true"><use href="#i-book"/></svg> Anchor: ${b.scripture}</p>
+      <div class="tags">${tagBtns(b.topics)}</div>
+    </div>
+  </article>`;
+}
+
+function passageCard(v){
+  const p=PREACHERS[v.preacher];
+  return `
+  <article class="card passage" style="--pc:var(--${v.preacher})">
+    <div class="card-body">
+      <div class="meta">
+        <span class="badge">${p.name}</span>
+        <span class="kjv">${iconSvg("i-cross")}King James Version</span>
+      </div>
+      <div class="ref">${v.ref}</div>
+      <p class="verse">${v.text}</p>
+      <p class="why">${v.why}</p>
+      <div class="tags">${tagBtns(v.topics)}</div>
+    </div>
+  </article>`;
+}
+
+function hymnCard(h){
+  return `
+  <article class="card hymn" style="--pc:var(--${h.tone})">
+    <button class="player" type="button" data-id="${h.id}" aria-label="Play: ${h.title}">
+      <img src="https://i.ytimg.com/vi/${h.id}/hqdefault.jpg" alt="Performance: ${h.title} — ${h.performer}" loading="lazy" data-vid="${h.id}" onerror="posterError(this)">
+      <span class="play"><span class="play-ring">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#e9c87a" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>
+      </span></span>
+    </button>
+    <div class="card-body">
+      <div class="meta">
+        <span class="badge">${h.performer}</span>
+        <span>${iconSvg("i-note")}${h.year}</span>
+      </div>
+      <h2>${h.title}</h2>
+      <p class="occasion"><svg class="ic" aria-hidden="true"><use href="#i-note"/></svg> ${h.occasion}</p>
+      <p class="desc">${h.desc}</p>
+      <div class="tags">${tagBtns(h.topics)}</div>
+      <a class="yt-link" href="https://www.youtube.com/watch?v=${h.id}" target="_blank" rel="noopener">Watch on YouTube ↗</a>
+    </div>
+  </article>`;
+}
+
+const TEMPLATES = { sermons:sermonCard, books:bookCard, passages:passageCard, hymns:hymnCard };
+const NOUNS = { sermons:"sermon", books:"book", passages:"passage", hymns:"hymn" };
+
+/* ---- devotional rose window (procedural SVG) ---- */
+function buildRose(){
+  const jewels=['--h-lapis','--graham','--h-emerald','--h-amber','--osteen','--h-rose','--warren','--jakes','--h-garnet','--stanley','--franklin','--h-royal'];
+  const N=12; let outer='',inner='',spokes='';
+  for(let i=0;i<N;i++){
+    const a=i*30;
+    const c1='var('+jewels[i%N]+')', c2='var('+jewels[(i+5)%N]+')';
+    outer+='<g transform="rotate('+a+' 200 200)"><path d="M200 108 C226 80 226 40 200 18 C174 40 174 80 200 108 Z" fill="'+c1+'" stroke="#2a2114" stroke-width="2.4" opacity=".92"/></g>';
+    inner+='<g transform="rotate('+(a+15)+' 200 200)"><path d="M200 164 C214 150 214 128 200 118 C186 128 186 150 200 164 Z" fill="'+c2+'" stroke="#2a2114" stroke-width="1.8" opacity=".9"/></g>';
+  }
+  for(let i=0;i<N;i++){ const r=i*30*Math.PI/180; spokes+='<line x1="200" y1="200" x2="'+(200+186*Math.sin(r)).toFixed(1)+'" y2="'+(200-186*Math.cos(r)).toFixed(1)+'"/>'; }
+  return '<svg viewBox="0 0 400 400" class="rose" role="img" aria-label="Rose window">'
+    +'<defs><radialGradient id="rg" cx="50%" cy="50%" r="62%"><stop offset="0%" stop-color="#fff3cf" stop-opacity=".9"/><stop offset="62%" stop-color="#f7ecd4" stop-opacity=".22"/><stop offset="100%" stop-color="#f7ecd4" stop-opacity="0"/></radialGradient></defs>'
+    +'<circle cx="200" cy="200" r="194" fill="url(#rg)"/>'
+    +'<circle cx="200" cy="200" r="186" fill="none" stroke="var(--gilt)" stroke-width="4"/>'
+    +'<circle cx="200" cy="200" r="178" fill="none" stroke="var(--gilt)" stroke-width="1" opacity=".5"/>'
+    +'<g stroke="var(--gilt)" stroke-width="1" opacity=".3">'+spokes+'</g>'
+    +'<g class="pouter">'+outer+'</g>'
+    +'<circle cx="200" cy="200" r="92" fill="none" stroke="var(--gilt)" stroke-width="3"/>'
+    +'<circle cx="200" cy="200" r="88" fill="#fbf3e0"/>'
+    +'<g class="pinner">'+inner+'</g>'
+    +'<circle cx="200" cy="200" r="36" fill="var(--card)" stroke="var(--gilt)" stroke-width="2.4"/>'
+    +'<g stroke="var(--ember)" stroke-width="6" stroke-linecap="round"><line x1="200" y1="182" x2="200" y2="218"/><line x1="184" y1="200" x2="216" y2="200"/></g>'
+    +'</svg>';
+}
+function enterVault(){
+  const s=document.getElementById("splash"); if(!s) return;
+  s.classList.add("gone");
+  document.body.classList.remove("splash-open");
+  setTimeout(()=>{ s.style.display="none"; }, 650);
+}
+
+/* ============ RENDER ============ */
+function render(){
+  buildTabs(); buildPreacherRow(); buildSituationRail(); buildTopicRow();
+
+  // tab counters reflect current filters
+  for(const k of Object.keys(COLLECTIONS)){
+    const n=COLLECTIONS[k].filter(matches).length;
+    document.getElementById("n"+k[0].toUpperCase()+k.slice(1)).textContent = n+" / "+COLLECTIONS[k].length;
+  }
+
+  const hits=COLLECTIONS[state.tab].filter(matches);
+  const grid=document.getElementById("grid");
+  grid.innerHTML=hits.map(TEMPLATES[state.tab]).join("");
+  document.getElementById("empty").hidden = hits.length>0;
+  document.getElementById("hintLabel").textContent = HINTS[state.tab];
+
+  const noun=NOUNS[state.tab];
+  const what = state.situation ? ` for \u201C${state.situation.toLowerCase()}\u201D` : "";
+  document.getElementById("countLabel").innerHTML =
+    `<b>${hits.length}</b> ${noun}${hits.length===1?"":"s"}${what}`;
+
+  // Lesson plan suggestion (when a situation is selected and we have a study for it)
+  const planWrap = document.getElementById("lessonPlan");
+  if (planWrap) {
+    const plan = state.situation && LESSON_PLANS[state.situation];
+    if (plan) {
+      const nQ = plan.sessions.reduce((a,s)=>a+s.questions.length,0) + (plan.review?plan.review.length:0);
+      planWrap.innerHTML = `
+        <div class="lp-banner" style="--pc:var(--${plan.pc||'gilt'})">
+          <div class="lp-kicker"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> A Guided Study for “${state.situation}”</div>
+          <div class="lp-title">${plan.title}</div>
+          <div class="lp-sub">${plan.subtitle}</div>
+          <div class="lp-steps">
+            <span class="lp-step"><b>1</b> Watch the series — ${plan.sessions.length} messages</span>
+            <span class="lp-step"><b>2</b> Answer ${nQ} questions</span>
+            <span class="lp-step"><b>3</b> Reflect &amp; pray together</span>
+          </div>
+          <button class="lp-open" type="button" data-plan="${state.situation}">
+            <svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg> Open the study plan →
+          </button>
+        </div>`;
+      planWrap.style.display = "";
+      const ob = planWrap.querySelector(".lp-open");
+      if(ob) ob.onclick = ()=>openPlan(state.situation);
+    } else {
+      planWrap.innerHTML = "";
+      planWrap.style.display = "none";
+    }
+  }
+
+  grid.querySelectorAll(".player").forEach(btn=>{
+    btn.addEventListener("click",()=>mountPlayer(btn),{once:true});
+  });
+
+  grid.querySelectorAll(".tag").forEach(t=>{
+    t.addEventListener("click",()=>{
+      state.situation=null;
+      state.topics=new Set([t.dataset.topic]);
+      render();
+      window.scrollTo({top:0});
+    });
+  });
+}
+
+/* ============ LESSON PLAN (full-screen, printable study) ============ */
+function embedPlayers(scope){
+  scope.querySelectorAll(".player").forEach(btn=>{
+    if(btn.dataset.wired) return; btn.dataset.wired="1";
+    btn.addEventListener("click",()=>mountPlayer(btn),{once:true});
+  });
+}
+
+/* ---- Video resilience: graceful fallback when a YouTube embed or poster fails ---- */
+function posterError(img){
+  // hqdefault occasionally 404s for valid videos — try mqdefault once, then a styled placeholder.
+  if(!img.dataset.fallback){ img.dataset.fallback="1"; img.src="https://i.ytimg.com/vi/"+img.dataset.vid+"/mqdefault.jpg"; return; }
+  const ph=document.createElement("div");
+  ph.className="poster-ph";
+  ph.innerHTML='<svg class="ic" aria-hidden="true"><use href="#i-rays"/></svg><span>Tap to play</span>';
+  img.replaceWith(ph);
+}
+function playerFallback(id){
+  const div=document.createElement("div");
+  div.className="player player-fallback";
+  div.innerHTML='<div class="pf-inner">'+
+    '<svg class="ic" aria-hidden="true"><use href="#i-rays"/></svg>'+
+    '<p>This message couldn’t load here — your connection may be offline, or YouTube blocked the embed.</p>'+
+    '<div class="pf-actions">'+
+      '<a class="pf-btn" href="https://www.youtube.com/watch?v='+id+'" target="_blank" rel="noopener">Watch on YouTube ↗</a>'+
+      '<button class="pf-btn pf-retry" type="button">Try again</button>'+
+    '</div></div>';
+  return div;
+}
+function mountPlayer(btn){
+  const id=btn.dataset.id;
+  const custom=btn.dataset.embed;
+  const src = custom
+    ? custom + (custom.indexOf("?")>-1?"&":"?") + "autoplay=1&playsinline=1&rel=0"
+    : "https://www.youtube.com/embed/"+id+"?autoplay=1&rel=0&playsinline=1";
+  const wrap=document.createElement("div");
+  wrap.className="player";
+  const iframe=document.createElement("iframe");
+  iframe.title="Video player";
+  iframe.loading="lazy";
+  iframe.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+  iframe.referrerPolicy="strict-origin-when-cross-origin";
+  iframe.allowFullscreen=true;
+  let loaded=false;
+  iframe.addEventListener("load",()=>{loaded=true;});
+  iframe.addEventListener("error",()=>showFallback(wrap,id));
+  iframe.src=src;
+  wrap.appendChild(iframe);
+  btn.replaceWith(wrap);
+  // Watchdog: if the embed never loads (offline / network-blocked), offer a graceful fallback.
+  setTimeout(()=>{ if(!loaded) showFallback(wrap,id); }, 8000);
+}
+function showFallback(wrap, id){
+  if(!wrap.isConnected) return;
+  const fb=playerFallback(id);
+  wrap.replaceWith(fb);
+  fb.querySelector(".pf-retry").addEventListener("click",()=>{
+    const btn=document.createElement("button");
+    btn.className="player"; btn.type="button"; btn.dataset.id=id;
+    btn.setAttribute("aria-label","Play");
+    btn.innerHTML='<img src="https://i.ytimg.com/vi/'+id+'/hqdefault.jpg" alt="Video poster" loading="lazy" data-vid="'+id+'" onerror="posterError(this)"><span class="play"><span class="play-ring"><svg width="22" height="22" viewBox="0 0 24 24" fill="#e9c87a" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span></span>';
+    fb.replaceWith(btn);
+    btn.addEventListener("click",()=>mountPlayer(btn),{once:true});
+  });
+}
+function sessionBlock(s,n){
+  const player = s.id ? `
+      <button class="player" type="button" data-id="${s.id}" aria-label="Play: ${s.title}">
+        <img src="https://i.ytimg.com/vi/${s.id}/hqdefault.jpg" alt="Poster: ${s.title}" loading="lazy" data-vid="${s.id}" onerror="posterError(this)">
+        <span class="play"><span class="play-ring"><svg width="22" height="22" viewBox="0 0 24 24" fill="#e9c87a" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg></span></span>
+      </button>
+      <a class="yt-link" href="https://www.youtube.com/watch?v=${s.id}" target="_blank" rel="noopener">Watch on YouTube ↗</a>` : "";
+  return `
+    <section class="session">
+      <div class="s-head"><span class="s-num">Session ${n}</span><span class="s-src">${s.source}</span></div>
+      <h3 class="s-title">${s.title}</h3>
+      ${player}
+      ${s.read?`<p class="s-read"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Read first: ${s.read}</p>`:""}
+      <p class="s-focus"><b>Listen for —</b> ${s.focus}</p>
+      <div class="q-block">
+        <div class="q-label">Check for understanding</div>
+        <ol class="q-list">${s.questions.map(q=>`<li>${q}</li>`).join("")}</ol>
+      </div>
+      <p class="s-takeaway"><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg> ${s.takeaway}</p>
+    </section>`;
+}
+function openPlan(situation){
+  const plan = LESSON_PLANS[situation]; if(!plan) return;
+  const accent = plan.pc || "gilt";
+  const view = document.getElementById("planView"); if(!view) return;
+  view.style.setProperty("--pc", `var(--${accent})`);
+  view.innerHTML = `
+    <div class="pv-top">
+      <button class="pv-back" type="button"><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg> Back to the vault</button>
+      <button class="pv-print" type="button"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Print / Save PDF</button>
+    </div>
+    <div class="pv-inner">
+      <div class="pv-eyebrow"><svg class="ic" aria-hidden="true"><use href="#i-rays"/></svg> A Guided Study · Sermon Vault</div>
+      <h1 class="pv-title">${plan.title}</h1>
+      <p class="pv-anchor"><svg class="ic" aria-hidden="true"><use href="#i-book"/></svg> Anchor verse: ${plan.scripture}</p>
+      <p class="pv-intro">${plan.intro}</p>
+      <p class="pv-for">${plan.forWhom}</p>
+      <div class="pv-howto">
+        <b>How to use this plan</b>
+        Take one session at a time — alone, or with a group. Watch the message (or read the passage), sit with the “listen for” cue, then work through the questions to check what you understood. Close each gathering with the reflection and prayer. There's no rush; a session a week is plenty.
+      </div>
+
+      <div class="pv-section-head"><svg class="ic" aria-hidden="true"><use href="#i-flame"/></svg> The Sessions</div>
+      ${plan.sessions.map((s,i)=>sessionBlock(s,i+1)).join("")}
+
+      <div class="pv-section-head"><svg class="ic" aria-hidden="true"><use href="#i-quote"/></svg> Pulling It Together</div>
+      <div class="pv-review">
+        <div class="q-label">Review — check your understanding of the whole series</div>
+        <ol class="q-list">${plan.review.map(q=>`<li>${q}</li>`).join("")}</ol>
+      </div>
+
+      <div class="pv-block">
+        <div class="pv-section-head" style="font-size:21px"><svg class="ic" aria-hidden="true"><use href="#i-note"/></svg> A Reflection to Take With You</div>
+        <p class="lead">${plan.reflect}</p>
+      </div>
+
+      <div class="pv-block">
+        <div class="pv-section-head" style="font-size:21px"><svg class="ic" aria-hidden="true"><use href="#i-heart"/></svg> Closing Prayer</div>
+        <p class="pv-prayer">${plan.prayer}</p>
+      </div>
+
+      <p class="pv-foot">The Sermon Vault · go in peace</p>
+    </div>`;
+  view.classList.add("open");
+  view.setAttribute("aria-hidden","false");
+  document.body.classList.add("plan-open");
+  embedPlayers(view);
+  view.querySelector(".pv-back").onclick = closePlan;
+  view.querySelector(".pv-print").onclick = ()=>window.print();
+  view.scrollTop = 0;
+  window.scrollTo({top:0});
+}
+function closePlan(){
+  const view = document.getElementById("planView"); if(!view) return;
+  view.classList.remove("open");
+  view.setAttribute("aria-hidden","true");
+  document.body.classList.remove("plan-open");
+  view.innerHTML = "";
+}
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"){ const v=document.getElementById("planView"); if(v&&v.classList.contains("open")) closePlan(); }
+});
+
+function resetAll(){
+  state={tab:state.tab,q:"",preacher:"all",topics:new Set(),situation:null};
+  document.getElementById("q").value="";
+  render();
+}
+
+document.getElementById("q").addEventListener("input",e=>{
+  state.q=e.target.value.trim().toLowerCase();
+  render();
+});
+document.getElementById("clearAll").addEventListener("click",resetAll);
+
+/* ---- warmth: greeting by hour ---- */
+(function(){
+  const h=new Date().getHours();
+  const line = h<5  ? "Up late? You're welcome here any hour."
+            : h<12 ? "Good morning — the light's just coming through the windows."
+            : h<17 ? "Good afternoon — come in, the kettle's warm."
+            :        "Good evening — the lamps are lit for you.";
+  document.getElementById("helloText").textContent=line;
+})();
+
+/* ---- today's word: one passage per day ---- */
+(function(){
+  const start=new Date(new Date().getFullYear(),0,0);
+  const day=Math.floor((new Date()-start)/86400000);
+  const v=PASSAGES[day % PASSAGES.length];
+  document.getElementById("dailyRef").textContent=v.ref;
+  document.getElementById("dailySnip").textContent="\u201C"+v.text.split(" ").slice(0,9).join(" ")+"\u2026\u201D";
+  document.getElementById("dailyBtn").addEventListener("click",()=>{
+    state={tab:"passages",q:v.ref.toLowerCase(),preacher:"all",topics:new Set(),situation:null};
+    document.getElementById("q").value=v.ref;
+    render();
+    document.getElementById("grid").scrollIntoView({behavior:"smooth",block:"start"});
+  });
+})();
+
+render();
+
+/* ---- splash: build, fill, and arm ---- */
+(function(){
+  const s=document.getElementById("splash"); if(!s) return;
+  document.body.classList.add("splash-open");
+  document.getElementById("roseWrap").innerHTML=buildRose();
+  document.getElementById("scSermons").textContent=SERMONS.length+" on film";
+  document.getElementById("scBooks").textContent=BOOKS.length+" summaries";
+  document.getElementById("scPassages").textContent=PASSAGES.length+" verses";
+  document.getElementById("scHymns").textContent=HYMNS.length+" performances";
+  document.getElementById("splashVoices").textContent="Thirteen voices — "+Object.values(PREACHERS).map(p=>p.name).join(" · ");
+  const enter=document.getElementById("enterBtn");
+  enter.addEventListener("click",enterVault);
+  try{ enter.focus({preventScroll:true}); }catch(e){}
+  s.addEventListener("keydown",e=>{ if(e.key==="Enter"||e.key==="Escape"){ e.preventDefault(); enterVault(); } });
+})();
+const _reopen=document.getElementById("reopenSplash");
+if(_reopen) _reopen.addEventListener("click",()=>{
+  const s=document.getElementById("splash"); if(!s) return;
+  s.style.display=""; void s.offsetWidth; s.classList.remove("gone");
+  document.body.classList.add("splash-open");
+  window.scrollTo({top:0});
+  try{ document.getElementById("enterBtn").focus({preventScroll:true}); }catch(e){}
+});
+
+/* ============ THE COLLECTION PLATE — In-App Purchase tip jar ============ */
+/* Consumable IAP via cordova-plugin-purchase (CdvPurchase). All tiers are gifts that
+   support the app; profits are donated to charity. Degrades gracefully in a plain browser. */
+(function(){
+  const TIERS = [
+    {id:"plate.gift.mite",     name:"A Widow’s Mite",   note:"a small, faithful gift"},
+    {id:"plate.gift.loaves",   name:"Loaves & Fishes",  note:"enough to share"},
+    {id:"plate.gift.cheerful", name:"A Cheerful Gift",  note:"given gladly"},
+    {id:"plate.gift.sower",    name:"A Sower’s Portion", note:"sown for a harvest"}
+  ];
+  const plate = document.getElementById("plate");
+  if(!plate) return;
+  const grid   = plate.querySelector(".plate-grid");
+  const status = plate.querySelector(".plate-status");
+  let store = null;
+
+  function setStatus(msg, kind){ status.textContent = msg||""; status.className = "plate-status"+(kind?" "+kind:""); }
+  function priceOf(id){ try{ const p = store && store.get(id); return p && p.pricing ? p.pricing.price : null; }catch(e){ return null; } }
+
+  function renderButtons(){
+    grid.innerHTML = "";
+    TIERS.forEach(t=>{
+      const price = priceOf(t.id);
+      const b = document.createElement("button");
+      b.className = "plate-btn"; b.type = "button"; b.disabled = !price;
+      b.innerHTML = iconSvg("i-gift")+'<b>'+t.name+'</b><small>'+t.note+'</small><span class="plate-price">'+(price||"—")+'</span>';
+      if(price) b.addEventListener("click",()=>give(t.id));
+      grid.appendChild(b);
+    });
+  }
+
+  function give(id){
+    if(!store) return;
+    setStatus("Passing the plate…");
+    try{
+      const prod  = store.get(id);
+      const offer = prod && prod.getOffer && prod.getOffer();
+      if(offer) store.order(offer); else setStatus("That gift isn’t available right now.","err");
+    }catch(e){ setStatus("That gift didn’t go through.","err"); }
+  }
+
+  function initNative(){
+    if(!window.CdvPurchase || !window.CdvPurchase.store) return false;
+    const { store:S, ProductType, Platform } = window.CdvPurchase;
+    store = S;
+    store.register(TIERS.map(t=>({ id:t.id, type:ProductType.CONSUMABLE, platform:Platform.APPLE_APPSTORE })));
+    store.when()
+      .productUpdated(renderButtons)
+      .approved(t=>t.verify())
+      .verified(r=>{ r.finish(); setStatus("Thank you. Your gift goes out into the world. 🕊️","ok"); });
+    store.error(e=>setStatus("That gift didn’t go through."+(e&&e.message?" ("+e.message+")":""),"err"));
+    store.initialize([Platform.APPLE_APPSTORE]).then(renderButtons);
+    return true;
+  }
+
+  renderButtons(); // placeholders (disabled) until the store loads / or in plain web
+  document.addEventListener("deviceready", ()=>{ if(!initNative()) webFallback(); }, false);
+  setTimeout(()=>{ if(!store) webFallback(); }, 1800); // plain browser: deviceready never fires
+  function webFallback(){ if(store) return; setStatus("The Collection Plate opens in the Sermon Vault app for iPhone."); }
+})();
+</script>
+</body>
+</html>
